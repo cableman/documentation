@@ -100,12 +100,12 @@ a {
   }
 
   &:hover {
-    color: $link-color-hover;
+    color: darken($link-color, 10%);
     text-decoration: none;
   }
 
   &:focus {
-    color: $link-color-hover;
+    color: darken($link-color, 10%);
   }
 }
 
