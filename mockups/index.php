@@ -2,9 +2,11 @@
   @include $_SERVER['DOCUMENT_ROOT']. '/inc/head.inc';
 ?>
 <body id="top">
+<div class="first-breakpoint">First breakpoint active</div>
+<div class="second-breakpoint">Second breakpoint active</div>
 <header class="header" role="banner">
   <div class="header--inner">
-    <a href="#top" class="logo"><img src="logo.png" alt=""></a>
+    <a href="#top" class="logo--link"><img src="logo.png" alt="" class="logo--image"></a>
     <nav class="responsive-nav">
       <a href="#" title="Min konto" class="responsive-nav--link">
         <i class="icon-user"></i>

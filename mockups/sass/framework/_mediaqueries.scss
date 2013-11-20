@@ -1,0 +1,73 @@
+/**
+ * Breakpoints
+ *
+ * Contains breakpoints and media queries
+ *
+ * @author magnify
+ */
+
+
+
+/* Breakpoints
+   ========================================================================== */
+
+$first-breakpoint:                18.75em;
+$second-breakpoint:               22.5em;
+
+
+
+/* Media queries
+   ========================================================================== */
+
+@mixin respond-to($media) {
+  @if $media == first-breakpoint {
+    @media only screen and (min-width: $first-breakpoint) { @content; }
+  }
+
+  @if $media == second-breakpoint {
+    @media only screen and (min-width: $second-breakpoint) { @content; }
+  }
+}
+
+
+
+/* Breakpoints
+   ========================================================================== */
+
+@mixin first-breakpoint {
+  @include respond-to(first-breakpoint) { @content; }
+}
+
+@mixin second-breakpoint {
+  @include respond-to(second-breakpoint) { @content; }
+}
+
+
+/* Debugging
+   ========================================================================== */
+
+.first-breakpoint,
+.second-breakpoint {
+  display: none;
+
+  /* This is debugging so ignoring the one-direction margin rule */
+  margin: 1em;
+
+  background-color: $black;
+  color: $white;
+  text-align: center;
+
+  @include border-radius(2em)
+}
+
+.first-breakpoint {
+  @include first-breakpoint() {
+    display: block;
+  }
+}
+
+.second-breakpoint {
+  @include second-breakpoint() {
+    display: block;
+  }
+}

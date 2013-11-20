@@ -587,6 +587,51 @@ ul li {
 }
 
 /**
+ * Breakpoints
+ *
+ * Contains breakpoints and media queries
+ *
+ * @author magnify
+ */
+/* Breakpoints
+   ========================================================================== */
+/* Media queries
+   ========================================================================== */
+/* Breakpoints
+   ========================================================================== */
+/* Debugging
+   ========================================================================== */
+/* line 50, ../sass/framework/_mediaqueries.scss */
+.first-breakpoint,
+.second-breakpoint {
+  display: none;
+  /* This is debugging so ignoring the one-direction margin rule */
+  margin: 1em;
+  background-color: black;
+  color: white;
+  text-align: center;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  -ms-border-radius: 2em;
+  -o-border-radius: 2em;
+  border-radius: 2em;
+}
+
+@media only screen and (min-width: 18.75em) {
+  /* line 63, ../sass/framework/_mediaqueries.scss */
+  .first-breakpoint {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 22.5em) {
+  /* line 69, ../sass/framework/_mediaqueries.scss */
+  .second-breakpoint {
+    display: block;
+  }
+}
+
+/**
  * Layout
  *
  * Contains styling of layout elements
@@ -619,51 +664,85 @@ ul li {
   padding-right: 1em;
   padding-left: 1em;
 }
+@media only screen and (min-width: 18.75em) {
+  /* line 19, ../sass/framework/_layout.scss */
+  .header--inner {
+    max-width: 48em;
+  }
+}
 
 /* Logo
    ========================================================================== */
-/* line 31, ../sass/framework/_layout.scss */
-.logo {
+/* line 35, ../sass/framework/_layout.scss */
+.logo--link {
   display: inline-block;
-  max-width: 5.625em;
+  max-width: 100%;
   padding-top: 1.25em;
   padding-bottom: .75em;
+  text-align: center;
+}
+@media only screen and (min-width: 18.75em) {
+  /* line 35, ../sass/framework/_layout.scss */
+  .logo--link {
+    max-width: 5.625em;
+  }
+}
+
+/* line 48, ../sass/framework/_layout.scss */
+.logo--image {
+  max-width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media only screen and (min-width: 18.75em) {
+  /* line 48, ../sass/framework/_layout.scss */
+  .logo--image {
+    max-width: 100%;
+  }
 }
 
 /* Navigation
    ========================================================================== */
-/* line 44, ../sass/framework/_layout.scss */
+/* line 63, ../sass/framework/_layout.scss */
 .responsive-nav {
-  padding-top: 1em;
-  padding-bottom: 1em;
-  text-align: right;
-  /* Make the mail icon bigger */
-  /* Make the menu icon bigger */
-  float: right;
-  width: 66.66667%;
-  margin-right: 0%;
-  margin-left: -66.66667%;
-  padding-left: 15px;
-  padding-right: 15px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  _display: inline;
-  _overflow: hidden;
-  _overflow-y: visible;
-  /* Make sure left and right padding is removed */
-  padding-left: 0;
-  padding-right: 0;
+  text-align: center;
 }
-/* line 50, ../sass/framework/_layout.scss */
-.responsive-nav .responsive-nav--link, .responsive-nav .responsive-nav--link-mail, .responsive-nav .responsive-nav--link-menu {
-  display: inline-block;
+@media only screen and (min-width: 18.75em) {
+  /* line 63, ../sass/framework/_layout.scss */
+  .responsive-nav {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: right;
+    float: right;
+    width: 66.66667%;
+    margin-right: 0%;
+    margin-left: -66.66667%;
+    padding-left: 15px;
+    padding-right: 15px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    _display: inline;
+    _overflow: hidden;
+    _overflow-y: visible;
+    /* Padding should come from parent element, so let's make sure left and right padding is removed */
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* Using a variable so we only have to set the size once */
+/* line 82, ../sass/framework/_layout.scss */
+.responsive-nav--link, .responsive-nav--link-mail, .responsive-nav--link-menu {
+  display: block;
   position: relative;
   height: 2.5em;
   width: 2.5em;
-  margin-left: 1em;
+  margin-right: auto;
+  margin-bottom: 1em;
+  margin-left: auto;
   background-color: rgba(255, 255, 255, 0.25);
   font-size: 125%;
   line-height: 2.5em;
@@ -675,26 +754,44 @@ ul li {
   -o-border-radius: 100%;
   border-radius: 100%;
 }
-/* line 64, ../sass/framework/_layout.scss */
-.responsive-nav .responsive-nav--link:link, .responsive-nav .responsive-nav--link-mail:link, .responsive-nav .responsive-nav--link-menu:link, .responsive-nav .responsive-nav--link:visited, .responsive-nav .responsive-nav--link-mail:visited, .responsive-nav .responsive-nav--link-menu:visited {
+/* line 98, ../sass/framework/_layout.scss */
+.responsive-nav--link:link, .responsive-nav--link-mail:link, .responsive-nav--link-menu:link, .responsive-nav--link:visited, .responsive-nav--link-mail:visited, .responsive-nav--link-menu:visited {
   color: white;
 }
-/* line 68, ../sass/framework/_layout.scss */
-.responsive-nav .responsive-nav--link:hover, .responsive-nav .responsive-nav--link-mail:hover, .responsive-nav .responsive-nav--link-menu:hover {
+/* line 102, ../sass/framework/_layout.scss */
+.responsive-nav--link:hover, .responsive-nav--link-mail:hover, .responsive-nav--link-menu:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
-/* line 79, ../sass/framework/_layout.scss */
-.responsive-nav .responsive-nav--link-mail i[class^="icon-"] {
+@media only screen and (min-width: 18.75em) {
+  /* line 82, ../sass/framework/_layout.scss */
+  .responsive-nav--link, .responsive-nav--link-mail, .responsive-nav--link-menu {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: .25em;
+  }
+}
+@media only screen and (min-width: 22.5em) {
+  /* line 82, ../sass/framework/_layout.scss */
+  .responsive-nav--link, .responsive-nav--link-mail, .responsive-nav--link-menu {
+    margin-left: 1em;
+  }
+}
+
+/* Make the mail icon bigger */
+/* line 123, ../sass/framework/_layout.scss */
+.responsive-nav--link-mail i[class^="icon-"] {
   font-size: 125%;
 }
-/* line 88, ../sass/framework/_layout.scss */
-.responsive-nav .responsive-nav--link-menu i[class^="icon-"] {
+
+/* Make the menu icon bigger */
+/* line 132, ../sass/framework/_layout.scss */
+.responsive-nav--link-menu i[class^="icon-"] {
   font-size: 150%;
 }
 
 /* Notifications
    ========================================================================== */
-/* line 105, ../sass/framework/_layout.scss */
+/* line 143, ../sass/framework/_layout.scss */
 .notification {
   display: inline-block;
   position: absolute;
@@ -714,7 +811,7 @@ ul li {
   -o-border-radius: 100%;
   border-radius: 100%;
 }
-/* line 121, ../sass/framework/_layout.scss */
+/* line 159, ../sass/framework/_layout.scss */
 .notification:link, .notification:visited {
   text-decoration: none;
 }

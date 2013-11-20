@@ -22,78 +22,116 @@
   margin-left: auto;
   padding-right: 1em;
   padding-left: 1em;
+
+  @include first-breakpoint() {
+    max-width: 48em;
+  }
 }
 
 
 /* Logo
    ========================================================================== */
 
-.logo {
+.logo--link {
   display: inline-block;
-  max-width: 5.625em;
+  max-width: 100%;
   padding-top: 1.25em;
   padding-bottom: .75em;
+
+  text-align: center;
+
+  @include first-breakpoint() {
+    max-width: 5.625em;
+  }
 }
+
+.logo--image {
+  max-width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include first-breakpoint() {
+    max-width: 100%;
+  }
+}
+
 
 
 /* Navigation
    ========================================================================== */
 
+.responsive-nav {
+  text-align: center;
+
+  @include first-breakpoint() {
+    padding-top: 1em;
+    padding-bottom: 1em;
+
+    text-align: right;
+
+    @include zen-grid-item(8, 1, right);
+
+    /* Padding should come from parent element, so let's make sure left and right padding is removed */
+    @include zen-nested-container();
+  }
+}
+
+/* Using a variable so we only have to set the size once */
 $responsive-nav-link-dimensions: 2.5em;
 
-.responsive-nav {
-  padding-top: 1em;
-  padding-bottom: 1em;
+.responsive-nav--link {
+  display: block;
+  position: relative;
+  height: $responsive-nav-link-dimensions;
+  width: $responsive-nav-link-dimensions;
+  margin-right: auto;
+  margin-bottom: 1em;
+  margin-left: auto;
 
-  text-align: right;
+  background-color: transparentize($white, .75);
+  font-size: 125%;
+  line-height: $responsive-nav-link-dimensions;
+  text-align: center;
+  vertical-align: middle;
 
-  .responsive-nav--link {
+  &:link,
+  &:visited {
+    color: $white;
+  }
+
+  &:hover {
+    background-color: transparentize($white, .5);
+  }
+
+  @include border-radius(100%);
+
+  @include first-breakpoint() {
     display: inline-block;
-    position: relative;
-    height: $responsive-nav-link-dimensions;
-    width: $responsive-nav-link-dimensions;
+    margin-bottom: 0;
+    margin-left: .25em;
+  }
+
+  @include second-breakpoint() {
     margin-left: 1em;
+  }
+}
 
-    background-color: transparentize($white, .75);
+/* Make the mail icon bigger */
+.responsive-nav--link-mail {
+  @extend .responsive-nav--link;
+
+  i[class^="icon-"] {
     font-size: 125%;
-    line-height: $responsive-nav-link-dimensions;
-    text-align: center;
-    vertical-align: middle;
-
-    &:link,
-    &:visited {
-      color: $white;
-    }
-
-    &:hover {
-      background-color: transparentize($white, .5);
-    }
-
-    @include border-radius(100%);
   }
+}
 
-  /* Make the mail icon bigger */
-  .responsive-nav--link-mail {
-    @extend .responsive-nav--link;
+/* Make the menu icon bigger */
+.responsive-nav--link-menu {
+  @extend .responsive-nav--link;
 
-    i[class^="icon-"] {
-      font-size: 125%;
-    }
+  i[class^="icon-"] {
+    font-size: 150%;
   }
-
-  /* Make the menu icon bigger */
-  .responsive-nav--link-menu {
-    @extend .responsive-nav--link;
-
-    i[class^="icon-"] {
-      font-size: 150%;
-    }
-  }
-
-  @include zen-grid-item(8, 1, right);
-
-  /* Make sure left and right padding is removed */
-  @include zen-nested-container();
 }
 
 
