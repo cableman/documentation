@@ -13,6 +13,11 @@
 @import "zen";
 
 
+// Include variables
+@import "vars/_vars";
+
+
 // Include framework
 @import "framework/_normalize";
 @import "framework/_base";
+@import "framework/_layout";
