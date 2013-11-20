@@ -14,3 +14,21 @@
 
   padding-top: 2em;
 }
+
+.search--field-wrapper {
+  position: relative;
+
+  .search--icon {
+    position: absolute;
+    bottom: .25em;
+    left: .15em;
+
+    color: $gray;
+    font-size: 200%;
+  }
+
+  .search--field {
+    padding-left: 3em;
+  }
+}
+

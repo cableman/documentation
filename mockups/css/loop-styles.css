@@ -482,7 +482,7 @@ table {
    ========================================================================== */
 /* line 13, ../sass/framework/_placeholders.scss */
 .header--inner, .search--inner {
-  max-width: 500px;
+  max-width: 31.25em;
   margin-right: auto;
   margin-left: auto;
 }
@@ -662,20 +662,15 @@ ul li {
  *
  * @author magnify
  */
-/* line 8, ../sass/framework/_forms.scss */
-label {
-  /* Move labels so they align better with fields when using rounded corners */
-  /* Remove this if you fields don't have rounded corners */
-  margin-left: .3em;
-}
-
-/* line 15, ../sass/framework/_forms.scss */
+/* Basic styling
+   ========================================================================== */
+/* line 13, ../sass/framework/_forms.scss */
 input,
 textarea {
   font: 1em/1.5 "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 29, ../sass/framework/_forms.scss */
+/* line 27, ../sass/framework/_forms.scss */
 input[type="text"],
 input[type="password"],
 input[type="date"],
@@ -692,6 +687,7 @@ textarea {
   min-height: 1.25em;
   min-width: 100%;
   padding: 1.25em;
+  color: gray;
   background-color: #f2f2f2;
   -webkit-border-radius: 12px;
   -moz-border-radius: 12px;
@@ -702,7 +698,7 @@ textarea {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 38, ../sass/framework/_forms.scss */
+/* line 37, ../sass/framework/_forms.scss */
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="date"]:focus,
@@ -716,9 +712,9 @@ input[type="url"]:focus,
 textarea:focus {
   border: 1px solid #bfbfbf;
   background-color: #f7f7f7;
-  color: black;
+  color: #1a1a1a;
 }
-/* line 45, ../sass/framework/_forms.scss */
+/* line 44, ../sass/framework/_forms.scss */
 input[type="text"][disabled],
 input[type="password"][disabled],
 input[type="date"][disabled],
@@ -735,6 +731,18 @@ textarea[disabled] {
   box-shadow: 0 0 0;
   border: 1px solid #f2f2f2;
   background-color: white;
+}
+
+/* Labels
+   ========================================================================== */
+/* line 60, ../sass/framework/_forms.scss */
+.form-label {
+  display: block;
+  margin-bottom: .25em;
+  /* Move labels so they align better with fields when using rounded corners */
+  /* Remove this if you fields don't have rounded corners */
+  margin-left: .3em;
+  color: gray;
 }
 
 /**
@@ -939,4 +947,21 @@ textarea[disabled] {
 /* line 12, ../sass/modules/_search.scss */
 .search--inner {
   padding-top: 2em;
+}
+
+/* line 18, ../sass/modules/_search.scss */
+.search--field-wrapper {
+  position: relative;
+}
+/* line 21, ../sass/modules/_search.scss */
+.search--field-wrapper .search--icon {
+  position: absolute;
+  bottom: .25em;
+  left: .15em;
+  color: #d9d9d9;
+  font-size: 200%;
+}
+/* line 30, ../sass/modules/_search.scss */
+.search--field-wrapper .search--field {
+  padding-left: 3em;
 }
