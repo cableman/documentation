@@ -1,0 +1,122 @@
+/**
+ * Layout
+ *
+ * Contains styling of layout elements
+ *
+ * @author magnify
+ */
+
+
+/* Header
+   ========================================================================== */
+
+.header {
+  background-color: $green;
+
+  @include zen-grid-container();
+}
+
+.header--inner {
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+/* Logo
+   ========================================================================== */
+
+.logo {
+  display: inline-block;
+  max-width: 5.625em;
+  padding-top: 1.25em;
+  padding-bottom: .75em;
+}
+
+
+/* Navigation
+   ========================================================================== */
+
+$responsive-nav-link-dimensions: 2.5em;
+
+.responsive-nav {
+  padding-top: 1em;
+  padding-bottom: 1em;
+
+  text-align: right;
+
+  .responsive-nav--link {
+    display: inline-block;
+    position: relative;
+    height: $responsive-nav-link-dimensions;
+    width: $responsive-nav-link-dimensions;
+    margin-left: 1em;
+
+    background-color: transparentize($white, .75);
+    font-size: 125%;
+    line-height: $responsive-nav-link-dimensions;
+    text-align: center;
+    vertical-align: middle;
+
+    &:link,
+    &:visited {
+      color: $white;
+    }
+
+    &:hover {
+      background-color: transparentize($white, .5);
+    }
+
+    &:active {
+    }
+
+    @include border-radius(100%);
+  }
+
+  .responsive-nav--link-big {
+    @extend .responsive-nav--link;
+
+    i[class^="icon-"] {
+      font-size: 125%;
+    }
+  }
+
+  .responsive-nav--link-bigger {
+    @extend .responsive-nav--link;
+
+    i[class^="icon-"] {
+      font-size: 150%;
+    }
+  }
+
+  @include zen-grid-item(8, 1, right);
+}
+
+
+/* Notifications
+   ========================================================================== */
+
+$notification-dimensions: 2em;
+
+.notification {
+  display: inline-block;
+  position: absolute;
+  top: -.5em;
+  right: -.5em;
+  height: $notification-dimensions;
+  width: $notification-dimensions;
+
+  background-color: $red;
+  font-size: 65%;
+  text-decoration: none;
+  line-height: $notification-dimensions;
+  text-align: center;
+  vertical-align: middle;
+
+  &:link,
+  &:visited {
+    text-decoration: none;
+  }
+
+  @include border-radius(100%);
+}
