@@ -5,6 +5,17 @@
  */
 /* Add compass */
 /* Add Zen Grids - http://zengrids.com */
+/**
+ * Variables
+ *
+ * @author magnify
+ */
+/* Zen grid
+   ========================================================================== */
+/* Layout colors
+   ========================================================================== */
+/* Link colors
+   ========================================================================== */
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
 /* ==========================================================================
    HTML5 display definitions
@@ -418,14 +429,14 @@ table {
  *
  * @author magnify
  */
-/* line 11, ../sass/framework/_base.scss */
+/* line 10, ../sass/framework/_base.scss */
 body {
-  background-color: #cafcd8;
+  background-color: #fff;
   color: #333;
   font: 1em/1.5 "Source Sans Pro", "Helvetica Neue", Helvetica, "Lucida Sans Unicode", Arial, sans-serif;
 }
 
-/* line 23, ../sass/framework/_base.scss */
+/* line 22, ../sass/framework/_base.scss */
 h1,
 h2,
 h3,
@@ -441,7 +452,7 @@ h6 {
   /* Voodoo to enable ligatures and kerning */
   text-rendering: optimizeLegibility;
 }
-/* line 37, ../sass/framework/_base.scss */
+/* line 36, ../sass/framework/_base.scss */
 h1 a:link,
 h2 a:link,
 h3 a:link,
@@ -451,7 +462,7 @@ h6 a:link {
   color: #04bfbf;
   text-decoration: none;
 }
-/* line 42, ../sass/framework/_base.scss */
+/* line 41, ../sass/framework/_base.scss */
 h1 a:visited,
 h2 a:visited,
 h3 a:visited,
@@ -460,7 +471,7 @@ h5 a:visited,
 h6 a:visited {
   color: #014242;
 }
-/* line 46, ../sass/framework/_base.scss */
+/* line 45, ../sass/framework/_base.scss */
 h1 a:hover,
 h2 a:hover,
 h3 a:hover,
@@ -469,7 +480,7 @@ h5 a:hover,
 h6 a:hover {
   color: #014242;
 }
-/* line 50, ../sass/framework/_base.scss */
+/* line 49, ../sass/framework/_base.scss */
 h1 a:focus,
 h2 a:focus,
 h3 a:focus,
@@ -478,7 +489,7 @@ h5 a:focus,
 h6 a:focus {
   color: #014242;
 }
-/* line 54, ../sass/framework/_base.scss */
+/* line 53, ../sass/framework/_base.scss */
 h1 a:active,
 h2 a:active,
 h3 a:active,
@@ -488,59 +499,59 @@ h6 a:active {
   color: #014242;
 }
 
-/* line 61, ../sass/framework/_base.scss */
+/* line 60, ../sass/framework/_base.scss */
 h1 {
   font-size: 300%;
 }
 
-/* line 65, ../sass/framework/_base.scss */
+/* line 64, ../sass/framework/_base.scss */
 h2 {
   font-size: 220%;
 }
 
-/* line 69, ../sass/framework/_base.scss */
+/* line 68, ../sass/framework/_base.scss */
 h3 {
   font-size: 170%;
 }
 
-/* line 74, ../sass/framework/_base.scss */
+/* line 73, ../sass/framework/_base.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 79, ../sass/framework/_base.scss */
+/* line 78, ../sass/framework/_base.scss */
 em {
   font-style: italic;
 }
-/* line 82, ../sass/framework/_base.scss */
+/* line 81, ../sass/framework/_base.scss */
 em strong {
   font-weight: bold;
 }
 
 /* Links
    ========================================================================== */
-/* line 93, ../sass/framework/_base.scss */
+/* line 92, ../sass/framework/_base.scss */
 a:link {
   color: #04bfbf;
   text-decoration: underline;
 }
-/* line 98, ../sass/framework/_base.scss */
+/* line 97, ../sass/framework/_base.scss */
 a:visited {
   color: #03a6a6;
 }
-/* line 102, ../sass/framework/_base.scss */
+/* line 101, ../sass/framework/_base.scss */
 a:hover {
   color: #038d8d;
   text-decoration: none;
 }
-/* line 107, ../sass/framework/_base.scss */
+/* line 106, ../sass/framework/_base.scss */
 a:focus {
   color: #038d8d;
 }
 
 /* Paragraph
    ========================================================================== */
-/* line 116, ../sass/framework/_base.scss */
+/* line 115, ../sass/framework/_base.scss */
 p {
   margin-top: 0;
   margin-bottom: 20px;
@@ -548,7 +559,7 @@ p {
 
 /* Image
    ========================================================================== */
-/* line 125, ../sass/framework/_base.scss */
+/* line 124, ../sass/framework/_base.scss */
 img {
   display: inline;
   height: auto;
@@ -558,12 +569,145 @@ img {
 
 /* Lists
    ========================================================================== */
-/* line 136, ../sass/framework/_base.scss */
+/* line 135, ../sass/framework/_base.scss */
 ul {
   margin: 0;
   padding-left: 20px;
 }
-/* line 140, ../sass/framework/_base.scss */
+/* line 139, ../sass/framework/_base.scss */
 ul li {
   list-style: circle;
+}
+
+/* States
+   ========================================================================== */
+/* line 148, ../sass/framework/_base.scss */
+.is-hidden {
+  display: none;
+}
+
+/**
+ * Layout
+ *
+ * Contains styling of layout elements
+ *
+ * @author magnify
+ */
+/* Header
+   ========================================================================== */
+/* line 13, ../sass/framework/_layout.scss */
+.header {
+  background-color: #3e8c2d;
+  *position: relative;
+  *zoom: 1;
+}
+/* line 46, ../../../../../../../../Library/Ruby/Gems/1.8/gems/zen-grids-1.4/stylesheets/zen/_grids.scss */
+.header:before, .header:after {
+  content: "";
+  display: table;
+}
+/* line 50, ../../../../../../../../Library/Ruby/Gems/1.8/gems/zen-grids-1.4/stylesheets/zen/_grids.scss */
+.header:after {
+  clear: both;
+}
+
+/* line 19, ../sass/framework/_layout.scss */
+.header--inner {
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Logo
+   ========================================================================== */
+/* line 29, ../sass/framework/_layout.scss */
+.logo {
+  display: inline-block;
+  max-width: 5.625em;
+  padding-top: 1.25em;
+  padding-bottom: .75em;
+}
+
+/* Navigation
+   ========================================================================== */
+/* line 42, ../sass/framework/_layout.scss */
+.responsive-nav {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-align: right;
+  float: right;
+  width: 66.66667%;
+  margin-right: 0%;
+  margin-left: -66.66667%;
+  padding-left: 15px;
+  padding-right: 15px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  _display: inline;
+  _overflow: hidden;
+  _overflow-y: visible;
+}
+/* line 48, ../sass/framework/_layout.scss */
+.responsive-nav .responsive-nav--link, .responsive-nav .responsive-nav--link-big, .responsive-nav .responsive-nav--link-bigger {
+  display: inline-block;
+  position: relative;
+  height: 2.5em;
+  width: 2.5em;
+  margin-left: 1em;
+  background-color: rgba(255, 255, 255, 0.25);
+  font-size: 125%;
+  line-height: 2.5em;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
+}
+/* line 62, ../sass/framework/_layout.scss */
+.responsive-nav .responsive-nav--link:link, .responsive-nav .responsive-nav--link-big:link, .responsive-nav .responsive-nav--link-bigger:link, .responsive-nav .responsive-nav--link:visited, .responsive-nav .responsive-nav--link-big:visited, .responsive-nav .responsive-nav--link-bigger:visited {
+  color: white;
+}
+/* line 66, ../sass/framework/_layout.scss */
+.responsive-nav .responsive-nav--link:hover, .responsive-nav .responsive-nav--link-big:hover, .responsive-nav .responsive-nav--link-bigger:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+/* line 79, ../sass/framework/_layout.scss */
+.responsive-nav .responsive-nav--link-big i[class^="icon-"] {
+  font-size: 125%;
+}
+/* line 87, ../sass/framework/_layout.scss */
+.responsive-nav .responsive-nav--link-bigger i[class^="icon-"] {
+  font-size: 150%;
+}
+
+/* Notifications
+   ========================================================================== */
+/* line 101, ../sass/framework/_layout.scss */
+.notification {
+  display: inline-block;
+  position: absolute;
+  top: -.5em;
+  right: -.5em;
+  height: 2em;
+  width: 2em;
+  background-color: #ff6138;
+  font-size: 65%;
+  text-decoration: none;
+  line-height: 2em;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
+}
+/* line 117, ../sass/framework/_layout.scss */
+.notification:link, .notification:visited {
+  text-decoration: none;
 }
