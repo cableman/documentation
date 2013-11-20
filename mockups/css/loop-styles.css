@@ -616,11 +616,13 @@ ul li {
   max-width: 500px;
   margin-right: auto;
   margin-left: auto;
+  padding-right: 1em;
+  padding-left: 1em;
 }
 
 /* Logo
    ========================================================================== */
-/* line 29, ../sass/framework/_layout.scss */
+/* line 31, ../sass/framework/_layout.scss */
 .logo {
   display: inline-block;
   max-width: 5.625em;
@@ -630,7 +632,7 @@ ul li {
 
 /* Navigation
    ========================================================================== */
-/* line 42, ../sass/framework/_layout.scss */
+/* line 44, ../sass/framework/_layout.scss */
 .responsive-nav {
   padding-top: 1em;
   padding-bottom: 1em;
@@ -651,8 +653,11 @@ ul li {
   _display: inline;
   _overflow: hidden;
   _overflow-y: visible;
+  /* Make sure left and right padding is removed */
+  padding-left: 0;
+  padding-right: 0;
 }
-/* line 48, ../sass/framework/_layout.scss */
+/* line 50, ../sass/framework/_layout.scss */
 .responsive-nav .responsive-nav--link, .responsive-nav .responsive-nav--link-mail, .responsive-nav .responsive-nav--link-menu {
   display: inline-block;
   position: relative;
@@ -670,26 +675,26 @@ ul li {
   -o-border-radius: 100%;
   border-radius: 100%;
 }
-/* line 62, ../sass/framework/_layout.scss */
+/* line 64, ../sass/framework/_layout.scss */
 .responsive-nav .responsive-nav--link:link, .responsive-nav .responsive-nav--link-mail:link, .responsive-nav .responsive-nav--link-menu:link, .responsive-nav .responsive-nav--link:visited, .responsive-nav .responsive-nav--link-mail:visited, .responsive-nav .responsive-nav--link-menu:visited {
   color: white;
 }
-/* line 66, ../sass/framework/_layout.scss */
+/* line 68, ../sass/framework/_layout.scss */
 .responsive-nav .responsive-nav--link:hover, .responsive-nav .responsive-nav--link-mail:hover, .responsive-nav .responsive-nav--link-menu:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
-/* line 77, ../sass/framework/_layout.scss */
+/* line 79, ../sass/framework/_layout.scss */
 .responsive-nav .responsive-nav--link-mail i[class^="icon-"] {
   font-size: 125%;
 }
-/* line 86, ../sass/framework/_layout.scss */
+/* line 88, ../sass/framework/_layout.scss */
 .responsive-nav .responsive-nav--link-menu i[class^="icon-"] {
   font-size: 150%;
 }
 
 /* Notifications
    ========================================================================== */
-/* line 100, ../sass/framework/_layout.scss */
+/* line 105, ../sass/framework/_layout.scss */
 .notification {
   display: inline-block;
   position: absolute;
@@ -709,7 +714,7 @@ ul li {
   -o-border-radius: 100%;
   border-radius: 100%;
 }
-/* line 116, ../sass/framework/_layout.scss */
+/* line 121, ../sass/framework/_layout.scss */
 .notification:link, .notification:visited {
   text-decoration: none;
 }

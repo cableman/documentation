@@ -20,6 +20,8 @@
   max-width: 500px;
   margin-right: auto;
   margin-left: auto;
+  padding-right: 1em;
+  padding-left: 1em;
 }
 
 
@@ -89,6 +91,9 @@ $responsive-nav-link-dimensions: 2.5em;
   }
 
   @include zen-grid-item(8, 1, right);
+
+  /* Make sure left and right padding is removed */
+  @include zen-nested-container();
 }
 
 

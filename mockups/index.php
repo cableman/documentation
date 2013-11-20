@@ -13,7 +13,7 @@
       <a href="#" title="Notifikationer" class="responsive-nav--link-mail">
         <i class="icon-mail"></i>
         <span class="is-hidden">Notifikationer</span>
-        <span class="notification">99</span>
+        <span class="notification">3</span>
       </a>
       <a href="#" title="Menu" class="responsive-nav--link-menu">
         <i class="icon-menu"></i>
