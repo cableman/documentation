@@ -67,13 +67,11 @@ $responsive-nav-link-dimensions: 2.5em;
       background-color: transparentize($white, .5);
     }
 
-    &:active {
-    }
-
     @include border-radius(100%);
   }
 
-  .responsive-nav--link-big {
+  /* Make the mail icon bigger */
+  .responsive-nav--link-mail {
     @extend .responsive-nav--link;
 
     i[class^="icon-"] {
@@ -81,7 +79,8 @@ $responsive-nav-link-dimensions: 2.5em;
     }
   }
 
-  .responsive-nav--link-bigger {
+  /* Make the menu icon bigger */
+  .responsive-nav--link-menu {
     @extend .responsive-nav--link;
 
     i[class^="icon-"] {

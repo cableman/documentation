@@ -10,12 +10,12 @@
         <i class="icon-user"></i>
         <span class="is-hidden">Min konto</span>
       </a>
-      <a href="#" title="Notifikationer" class="responsive-nav--link-big">
+      <a href="#" title="Notifikationer" class="responsive-nav--link-mail">
         <i class="icon-mail"></i>
         <span class="is-hidden">Notifikationer</span>
         <span class="notification">99</span>
       </a>
-      <a href="#" title="Menu" class="responsive-nav--link-bigger">
+      <a href="#" title="Menu" class="responsive-nav--link-menu">
         <i class="icon-menu"></i>
         <span class="is-hidden">Menu</span>
       </a>

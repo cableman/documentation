@@ -635,6 +635,8 @@ ul li {
   padding-top: 1em;
   padding-bottom: 1em;
   text-align: right;
+  /* Make the mail icon bigger */
+  /* Make the menu icon bigger */
   float: right;
   width: 66.66667%;
   margin-right: 0%;
@@ -651,7 +653,7 @@ ul li {
   _overflow-y: visible;
 }
 /* line 48, ../sass/framework/_layout.scss */
-.responsive-nav .responsive-nav--link, .responsive-nav .responsive-nav--link-big, .responsive-nav .responsive-nav--link-bigger {
+.responsive-nav .responsive-nav--link, .responsive-nav .responsive-nav--link-mail, .responsive-nav .responsive-nav--link-menu {
   display: inline-block;
   position: relative;
   height: 2.5em;
@@ -669,25 +671,25 @@ ul li {
   border-radius: 100%;
 }
 /* line 62, ../sass/framework/_layout.scss */
-.responsive-nav .responsive-nav--link:link, .responsive-nav .responsive-nav--link-big:link, .responsive-nav .responsive-nav--link-bigger:link, .responsive-nav .responsive-nav--link:visited, .responsive-nav .responsive-nav--link-big:visited, .responsive-nav .responsive-nav--link-bigger:visited {
+.responsive-nav .responsive-nav--link:link, .responsive-nav .responsive-nav--link-mail:link, .responsive-nav .responsive-nav--link-menu:link, .responsive-nav .responsive-nav--link:visited, .responsive-nav .responsive-nav--link-mail:visited, .responsive-nav .responsive-nav--link-menu:visited {
   color: white;
 }
 /* line 66, ../sass/framework/_layout.scss */
-.responsive-nav .responsive-nav--link:hover, .responsive-nav .responsive-nav--link-big:hover, .responsive-nav .responsive-nav--link-bigger:hover {
+.responsive-nav .responsive-nav--link:hover, .responsive-nav .responsive-nav--link-mail:hover, .responsive-nav .responsive-nav--link-menu:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
-/* line 79, ../sass/framework/_layout.scss */
-.responsive-nav .responsive-nav--link-big i[class^="icon-"] {
+/* line 77, ../sass/framework/_layout.scss */
+.responsive-nav .responsive-nav--link-mail i[class^="icon-"] {
   font-size: 125%;
 }
-/* line 87, ../sass/framework/_layout.scss */
-.responsive-nav .responsive-nav--link-bigger i[class^="icon-"] {
+/* line 86, ../sass/framework/_layout.scss */
+.responsive-nav .responsive-nav--link-menu i[class^="icon-"] {
   font-size: 150%;
 }
 
 /* Notifications
    ========================================================================== */
-/* line 101, ../sass/framework/_layout.scss */
+/* line 100, ../sass/framework/_layout.scss */
 .notification {
   display: inline-block;
   position: absolute;
@@ -707,7 +709,7 @@ ul li {
   -o-border-radius: 100%;
   border-radius: 100%;
 }
-/* line 117, ../sass/framework/_layout.scss */
+/* line 116, ../sass/framework/_layout.scss */
 .notification:link, .notification:visited {
   text-decoration: none;
 }
