@@ -1,7 +1,7 @@
 <?php
   @include $_SERVER['DOCUMENT_ROOT']. '/inc/head.inc';
 ?>
-<body id="top">
+<body>
 <div class="first-breakpoint">First breakpoint active</div>
 <div class="second-breakpoint">Second breakpoint active</div>
 <header class="header" role="banner">
