@@ -17,16 +17,11 @@
 }
 
 .header--inner {
+  @extend %set-max-width-and-center-element;
+
   min-height: 5em;
-  max-width: 500px;
-  margin-right: auto;
-  margin-left: auto;
   padding-right: 1em;
   padding-left: 1em;
-
-  @include first-breakpoint() {
-    max-width: 48em;
-  }
 }
 
 

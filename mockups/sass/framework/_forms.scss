@@ -5,6 +5,12 @@
  */
 
 
+label {
+  /* Move labels so they align better with fields when using rounded corners */
+  /* Remove this if you fields don't have rounded corners */
+  margin-left: .3em;
+}
+
 input,
 textarea {
   font: $font;
@@ -23,16 +29,14 @@ input[type="url"],
 textarea {
   border: 1px solid $gray;
   display: block;
-  margin-bottom: 15px;
-  min-height: 15px;
+  min-height: 1.25em;
   min-width: 100%;
-  padding: 15px;
+  padding: 1.25em;
 
   background-color: $gray-light;
-  font: $font;
 
   &:focus {
-    border: 1px solid darken($red, 15%);
+    border: 1px solid $gray-dark;
 
     background-color: darken($white, 3%);
     color: darken($black, 10%);
@@ -46,6 +50,6 @@ textarea {
     background-color: lighten($gray-light, 5%);
   }
 
-  @include border-radius($base-border-radius);
+  @include border-radius($border-radius);
   @include box-sizing(border-box);
 }

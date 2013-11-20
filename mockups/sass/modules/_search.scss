@@ -1,0 +1,16 @@
+/**
+ * Search module
+ *
+ * @author magnify
+ */
+
+
+.search {
+  @include zen-grid-item(12, 1);
+}
+
+.search--inner {
+  @extend %set-max-width-and-center-element;
+
+  padding-top: 2em;
+}

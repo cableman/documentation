@@ -12,7 +12,9 @@
  */
 /* Zen grid
    ========================================================================== */
-/* Layout colors
+/* Layout
+   ========================================================================== */
+/* Colors
    ========================================================================== */
 /* Typograhy
    ========================================================================== */
@@ -425,6 +427,73 @@ table {
 }
 
 /**
+ * Breakpoints
+ *
+ * Contains breakpoints and media queries
+ *
+ * @author magnify
+ */
+/* Breakpoints
+   ========================================================================== */
+/* Media queries
+   ========================================================================== */
+/* Breakpoints
+   ========================================================================== */
+/* Debugging
+   ========================================================================== */
+/* line 50, ../sass/framework/_mediaqueries.scss */
+.first-breakpoint,
+.second-breakpoint {
+  display: none;
+  /* This is debugging so ignoring the one-direction margin rule */
+  margin: 1em;
+  background-color: black;
+  color: white;
+  text-align: center;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  -ms-border-radius: 2em;
+  -o-border-radius: 2em;
+  border-radius: 2em;
+}
+
+@media only screen and (min-width: 18.75em) {
+  /* line 63, ../sass/framework/_mediaqueries.scss */
+  .first-breakpoint {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 22.5em) {
+  /* line 69, ../sass/framework/_mediaqueries.scss */
+  .second-breakpoint {
+    display: block;
+  }
+}
+
+/**
+ * Placeholders
+ *
+ * This contains placeholders used with @extend in rulesets
+ *
+ * @author magnify
+ */
+/* Layout placeholders
+   ========================================================================== */
+/* line 13, ../sass/framework/_placeholders.scss */
+.header--inner, .search--inner {
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media only screen and (min-width: 18.75em) {
+  /* line 13, ../sass/framework/_placeholders.scss */
+  .header--inner, .search--inner {
+    max-width: 48em;
+  }
+}
+
+/**
  * Base
  *
  * Contains styling and reset of basic elements
@@ -589,48 +658,83 @@ ul li {
 }
 
 /**
- * Breakpoints
- *
- * Contains breakpoints and media queries
+ * Forms
  *
  * @author magnify
  */
-/* Breakpoints
-   ========================================================================== */
-/* Media queries
-   ========================================================================== */
-/* Breakpoints
-   ========================================================================== */
-/* Debugging
-   ========================================================================== */
-/* line 50, ../sass/framework/_mediaqueries.scss */
-.first-breakpoint,
-.second-breakpoint {
-  display: none;
-  /* This is debugging so ignoring the one-direction margin rule */
-  margin: 1em;
-  background-color: black;
-  color: white;
-  text-align: center;
-  -webkit-border-radius: 2em;
-  -moz-border-radius: 2em;
-  -ms-border-radius: 2em;
-  -o-border-radius: 2em;
-  border-radius: 2em;
+/* line 8, ../sass/framework/_forms.scss */
+label {
+  /* Move labels so they align better with fields when using rounded corners */
+  /* Remove this if you fields don't have rounded corners */
+  margin-left: .3em;
 }
 
-@media only screen and (min-width: 18.75em) {
-  /* line 63, ../sass/framework/_mediaqueries.scss */
-  .first-breakpoint {
-    display: block;
-  }
+/* line 15, ../sass/framework/_forms.scss */
+input,
+textarea {
+  font: 1em/1.5 "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-@media only screen and (min-width: 22.5em) {
-  /* line 69, ../sass/framework/_mediaqueries.scss */
-  .second-breakpoint {
-    display: block;
-  }
+/* line 29, ../sass/framework/_forms.scss */
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea {
+  border: 1px solid #d9d9d9;
+  display: block;
+  min-height: 1.25em;
+  min-width: 100%;
+  padding: 1.25em;
+  background-color: #f2f2f2;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  border-radius: 12px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 38, ../sass/framework/_forms.scss */
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="datetime"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="time"]:focus,
+input[type="url"]:focus,
+textarea:focus {
+  border: 1px solid #bfbfbf;
+  background-color: #f7f7f7;
+  color: black;
+}
+/* line 45, ../sass/framework/_forms.scss */
+input[type="text"][disabled],
+input[type="password"][disabled],
+input[type="date"][disabled],
+input[type="datetime"][disabled],
+input[type="email"][disabled],
+input[type="number"][disabled],
+input[type="search"][disabled],
+input[type="tel"][disabled],
+input[type="time"][disabled],
+input[type="url"][disabled],
+textarea[disabled] {
+  -webkit-box-shadow: 0 0 0;
+  -moz-box-shadow: 0 0 0;
+  box-shadow: 0 0 0;
+  border: 1px solid #f2f2f2;
+  background-color: white;
 }
 
 /**
@@ -661,22 +765,13 @@ ul li {
 /* line 19, ../sass/framework/_layout.scss */
 .header--inner {
   min-height: 5em;
-  max-width: 500px;
-  margin-right: auto;
-  margin-left: auto;
   padding-right: 1em;
   padding-left: 1em;
-}
-@media only screen and (min-width: 18.75em) {
-  /* line 19, ../sass/framework/_layout.scss */
-  .header--inner {
-    max-width: 48em;
-  }
 }
 
 /* Logo
    ========================================================================== */
-/* line 36, ../sass/framework/_layout.scss */
+/* line 31, ../sass/framework/_layout.scss */
 .logo--link {
   display: inline-block;
   max-width: 100%;
@@ -684,20 +779,20 @@ ul li {
   text-align: center;
 }
 @media only screen and (min-width: 18.75em) {
-  /* line 36, ../sass/framework/_layout.scss */
+  /* line 31, ../sass/framework/_layout.scss */
   .logo--link {
     max-width: 5.625em;
   }
 }
 
-/* line 48, ../sass/framework/_layout.scss */
+/* line 43, ../sass/framework/_layout.scss */
 .logo--image {
   max-width: 75%;
   margin-right: auto;
   margin-left: auto;
 }
 @media only screen and (min-width: 18.75em) {
-  /* line 48, ../sass/framework/_layout.scss */
+  /* line 43, ../sass/framework/_layout.scss */
   .logo--image {
     max-width: 100%;
   }
@@ -705,12 +800,12 @@ ul li {
 
 /* Navigation
    ========================================================================== */
-/* line 63, ../sass/framework/_layout.scss */
+/* line 58, ../sass/framework/_layout.scss */
 .responsive-nav {
   text-align: center;
 }
 @media only screen and (min-width: 18.75em) {
-  /* line 63, ../sass/framework/_layout.scss */
+  /* line 58, ../sass/framework/_layout.scss */
   .responsive-nav {
     padding-top: 1em;
     padding-bottom: 1em;
@@ -736,7 +831,7 @@ ul li {
 }
 
 /* Using a variable so we only have to set the size once */
-/* line 82, ../sass/framework/_layout.scss */
+/* line 77, ../sass/framework/_layout.scss */
 .responsive-nav--link, .responsive-nav--link-mail, .responsive-nav--link-menu {
   display: block;
   position: relative;
@@ -756,16 +851,16 @@ ul li {
   -o-border-radius: 100%;
   border-radius: 100%;
 }
-/* line 98, ../sass/framework/_layout.scss */
+/* line 93, ../sass/framework/_layout.scss */
 .responsive-nav--link:link, .responsive-nav--link-mail:link, .responsive-nav--link-menu:link, .responsive-nav--link:visited, .responsive-nav--link-mail:visited, .responsive-nav--link-menu:visited {
   color: white;
 }
-/* line 102, ../sass/framework/_layout.scss */
+/* line 97, ../sass/framework/_layout.scss */
 .responsive-nav--link:hover, .responsive-nav--link-mail:hover, .responsive-nav--link-menu:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
 @media only screen and (min-width: 18.75em) {
-  /* line 82, ../sass/framework/_layout.scss */
+  /* line 77, ../sass/framework/_layout.scss */
   .responsive-nav--link, .responsive-nav--link-mail, .responsive-nav--link-menu {
     display: inline-block;
     margin-bottom: 0;
@@ -773,27 +868,27 @@ ul li {
   }
 }
 @media only screen and (min-width: 22.5em) {
-  /* line 82, ../sass/framework/_layout.scss */
+  /* line 77, ../sass/framework/_layout.scss */
   .responsive-nav--link, .responsive-nav--link-mail, .responsive-nav--link-menu {
     margin-left: 1em;
   }
 }
 
 /* Make the mail icon bigger */
-/* line 123, ../sass/framework/_layout.scss */
+/* line 118, ../sass/framework/_layout.scss */
 .responsive-nav--link-mail i[class^="icon-"] {
   font-size: 125%;
 }
 
 /* Make the menu icon bigger */
-/* line 132, ../sass/framework/_layout.scss */
+/* line 127, ../sass/framework/_layout.scss */
 .responsive-nav--link-menu i[class^="icon-"] {
   font-size: 150%;
 }
 
 /* Notifications
    ========================================================================== */
-/* line 143, ../sass/framework/_layout.scss */
+/* line 138, ../sass/framework/_layout.scss */
 .notification {
   display: inline-block;
   position: absolute;
@@ -813,7 +908,35 @@ ul li {
   -o-border-radius: 100%;
   border-radius: 100%;
 }
-/* line 159, ../sass/framework/_layout.scss */
+/* line 154, ../sass/framework/_layout.scss */
 .notification:link, .notification:visited {
   text-decoration: none;
+}
+
+/**
+ * Search module
+ *
+ * @author magnify
+ */
+/* line 8, ../sass/modules/_search.scss */
+.search {
+  float: left;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: -100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  _display: inline;
+  _overflow: hidden;
+  _overflow-y: visible;
+}
+
+/* line 12, ../sass/modules/_search.scss */
+.search--inner {
+  padding-top: 2em;
 }

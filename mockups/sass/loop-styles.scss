@@ -5,20 +5,27 @@
  */
 
 
+
 /* Add compass */
 @import "compass/css3";
+
 
 
 /* Add Zen Grids - http://zengrids.com */
 @import "zen";
 
 
-// Include variables
-@import "vars/_vars";
-
 
 // Include framework
+@import "framework/_vars";
 @import "framework/_normalize";
-@import "framework/_base";
 @import "framework/_mediaqueries";
+@import "framework/_placeholders";
+@import "framework/_base";
+@import "framework/_forms";
 @import "framework/_layout";
+
+
+
+// Modules
+@import "modules/_search";

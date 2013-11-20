@@ -24,11 +24,13 @@
     </nav>
   </div>
 </header>
-<div class="primary-content">
-
-</div>
-<div class="secondary-content">
-
+<div class="search">
+  <div class="search--inner">
+    <form>
+      <label>Søg efter svar</label>
+      <input type="text" placeholder="Skriv f.eks. hvordan støvsuger man">
+    </form>
+  </div>
 </div>
 </body>
 </html>
