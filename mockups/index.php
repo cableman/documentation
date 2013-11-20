@@ -4,12 +4,21 @@
 <body id="top">
 <header class="header" role="banner">
   <div class="header--inner">
-    <a href="#top" class="logo--link"><img src="logo.png" alt="" class="logo--image"></a>
-    <nav class="navigation">
-      <a href="#galleri" title="Galleri & inspiration">Galleri & inspiration</a>
-      <a href="#priser" title="Priser">Priser</a>
-      <a href="#info" title="Info">Information</a>
-      <a href="#kontakt" title="Kontakt">Kontakt</a>
+    <a href="#top" class="logo"><img src="logo.png" alt=""></a>
+    <nav class="responsive-nav">
+      <a href="#" title="Min konto" class="responsive-nav--link">
+        <i class="icon-user"></i>
+        <span class="is-hidden">Min konto</span>
+      </a>
+      <a href="#" title="Notifikationer" class="responsive-nav--link-big">
+        <i class="icon-mail"></i>
+        <span class="is-hidden">Notifikationer</span>
+        <span class="notification">99</span>
+      </a>
+      <a href="#" title="Menu" class="responsive-nav--link-bigger">
+        <i class="icon-menu"></i>
+        <span class="is-hidden">Menu</span>
+      </a>
     </nav>
   </div>
 </header>
