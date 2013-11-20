@@ -1,0 +1,51 @@
+/**
+ * Forms
+ *
+ * @author magnify
+ */
+
+
+input,
+textarea {
+  font: $font;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea {
+  border: 1px solid $gray;
+  display: block;
+  margin-bottom: 15px;
+  min-height: 15px;
+  min-width: 100%;
+  padding: 15px;
+
+  background-color: $gray-light;
+  font: $font;
+
+  &:focus {
+    border: 1px solid darken($red, 15%);
+
+    background-color: darken($white, 3%);
+    color: darken($black, 10%);
+  }
+
+  &[disabled] {
+    @include box-shadow(0 0 0);
+
+    border: 1px solid $gray-light;
+
+    background-color: lighten($gray-light, 5%);
+  }
+
+  @include border-radius($base-border-radius);
+  @include box-sizing(border-box);
+}
