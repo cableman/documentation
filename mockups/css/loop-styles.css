@@ -690,7 +690,7 @@ ul li {
 
 /* line 48, ../sass/framework/_layout.scss */
 .logo--image {
-  max-width: 50%;
+  max-width: 75%;
   margin-right: auto;
   margin-left: auto;
 }
