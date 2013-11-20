@@ -6,10 +6,9 @@
  * @author magnify
  */
 
-$link-color: #04bfbf;
 
 body {
-  background-color: #cafcd8;
+  background-color: #fff;
   color: #333;
   font: 1em/1.5 "Source Sans Pro", "Helvetica Neue", Helvetica, "Lucida Sans Unicode", Arial, sans-serif;
 }
@@ -140,4 +139,12 @@ ul {
   li {
     list-style: circle;
   }
+}
+
+
+/* States
+   ========================================================================== */
+
+.is-hidden {
+  display: none;
 }
