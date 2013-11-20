@@ -658,6 +658,7 @@ ul li {
 
 /* line 19, ../sass/framework/_layout.scss */
 .header--inner {
+  min-height: 5em;
   max-width: 500px;
   margin-right: auto;
   margin-left: auto;
@@ -673,16 +674,15 @@ ul li {
 
 /* Logo
    ========================================================================== */
-/* line 35, ../sass/framework/_layout.scss */
+/* line 36, ../sass/framework/_layout.scss */
 .logo--link {
   display: inline-block;
   max-width: 100%;
   padding-top: 1.25em;
-  padding-bottom: .75em;
   text-align: center;
 }
 @media only screen and (min-width: 18.75em) {
-  /* line 35, ../sass/framework/_layout.scss */
+  /* line 36, ../sass/framework/_layout.scss */
   .logo--link {
     max-width: 5.625em;
   }
