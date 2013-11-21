@@ -27,7 +27,7 @@
 </header>
 <div class="search">
   <div class="search--inner">
-    <form>
+    <form action="search-question.php">
       <label class="form-label">Søg efter svar</label>
       <div class="search--field-wrapper">
         <i class="search--icon icon-search"></i>

@@ -10,12 +10,26 @@
 /* Layout placeholders
    ========================================================================== */
 
+/* Used for centering a section */
 %set-max-width-and-center-element {
   max-width: 31.25em;
   margin-right: auto;
+  margin-bottom: $margin-bottom;
   margin-left: auto;
+
+  clear: both;
 
   @include breakpoint(1) {
     max-width: 48em;
   }
+}
+
+
+%basic-element-styling {
+  padding: 1.5em;
+
+  background-color: $gray-light;
+
+  @include border-radius($border-radius);
+  @include box-sizing(border-box);
 }

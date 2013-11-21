@@ -497,17 +497,34 @@ table {
  */
 /* Layout placeholders
    ========================================================================== */
-/* line 13, ../sass/framework/_placeholders.scss */
-.header--inner, .search--inner {
+/* Used for centering a section */
+/* line 14, ../sass/framework/_placeholders.scss */
+.header--inner, .search--inner, .search-result {
   max-width: 31.25em;
   margin-right: auto;
   margin-left: auto;
+  clear: both;
 }
 @media only screen and (min-width: 18.75em) {
-  /* line 13, ../sass/framework/_placeholders.scss */
-  .header--inner, .search--inner {
+  /* line 14, ../sass/framework/_placeholders.scss */
+  .header--inner, .search--inner, .search-result {
     max-width: 48em;
   }
+}
+
+/* line 27, ../sass/framework/_placeholders.scss */
+.search--inner, .search-result {
+  margin-bottom: 1.25em;
+  padding: 1.5em;
+  background-color: #f2f2f2;
+  -webkit-border-radius: 0.6em;
+  -moz-border-radius: 0.6em;
+  -ms-border-radius: 0.6em;
+  -o-border-radius: 0.6em;
+  border-radius: 0.6em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /**
@@ -822,7 +839,7 @@ textarea[disabled] {
 
 /* Logo
    ========================================================================== */
-/* line 33, ../sass/framework/_layout.scss */
+/* line 34, ../sass/framework/_layout.scss */
 .logo--link {
   display: inline-block;
   max-width: 100%;
@@ -830,20 +847,20 @@ textarea[disabled] {
   text-align: center;
 }
 @media only screen and (min-width: 18.75em) {
-  /* line 33, ../sass/framework/_layout.scss */
+  /* line 34, ../sass/framework/_layout.scss */
   .logo--link {
     max-width: 5.625em;
   }
 }
 
-/* line 45, ../sass/framework/_layout.scss */
+/* line 46, ../sass/framework/_layout.scss */
 .logo--image {
   max-width: 75%;
   margin-right: auto;
   margin-left: auto;
 }
 @media only screen and (min-width: 18.75em) {
-  /* line 45, ../sass/framework/_layout.scss */
+  /* line 46, ../sass/framework/_layout.scss */
   .logo--image {
     max-width: 100%;
   }
@@ -851,12 +868,12 @@ textarea[disabled] {
 
 /* Navigation
    ========================================================================== */
-/* line 60, ../sass/framework/_layout.scss */
+/* line 61, ../sass/framework/_layout.scss */
 .nav {
   text-align: center;
 }
 @media only screen and (min-width: 18.75em) {
-  /* line 60, ../sass/framework/_layout.scss */
+  /* line 61, ../sass/framework/_layout.scss */
   .nav {
     padding-top: 1em;
     padding-bottom: 1em;
@@ -882,7 +899,7 @@ textarea[disabled] {
 }
 
 /* Using a variable so we only have to set the size once */
-/* line 79, ../sass/framework/_layout.scss */
+/* line 80, ../sass/framework/_layout.scss */
 .nav--link, .nav--link-mail, .nav--link-menu {
   display: block;
   position: relative;
@@ -902,21 +919,21 @@ textarea[disabled] {
   -o-border-radius: 100%;
   border-radius: 100%;
 }
-/* line 95, ../sass/framework/_layout.scss */
+/* line 96, ../sass/framework/_layout.scss */
 .nav--link:link, .nav--link-mail:link, .nav--link-menu:link, .nav--link:visited, .nav--link-mail:visited, .nav--link-menu:visited {
   color: white;
   text-decoration: none;
 }
-/* line 100, ../sass/framework/_layout.scss */
+/* line 101, ../sass/framework/_layout.scss */
 .nav--link:hover, .nav--link-mail:hover, .nav--link-menu:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
-/* line 104, ../sass/framework/_layout.scss */
+/* line 105, ../sass/framework/_layout.scss */
 .nav--link i[class^="icon-"], .nav--link-mail i[class^="icon-"], .nav--link-menu i[class^="icon-"] {
   vertical-align: bottom;
 }
 @media only screen and (min-width: 18.75em) {
-  /* line 79, ../sass/framework/_layout.scss */
+  /* line 80, ../sass/framework/_layout.scss */
   .nav--link, .nav--link-mail, .nav--link-menu {
     display: inline-block;
     margin-bottom: 0;
@@ -924,13 +941,13 @@ textarea[disabled] {
   }
 }
 @media only screen and (min-width: 22.5em) {
-  /* line 79, ../sass/framework/_layout.scss */
+  /* line 80, ../sass/framework/_layout.scss */
   .nav--link, .nav--link-mail, .nav--link-menu {
     margin-left: 1em;
   }
 }
 @media only screen and (min-width: 43em) {
-  /* line 79, ../sass/framework/_layout.scss */
+  /* line 80, ../sass/framework/_layout.scss */
   .nav--link, .nav--link-mail, .nav--link-menu {
     padding-right: .75em;
     padding-left: .75em;
@@ -943,12 +960,12 @@ textarea[disabled] {
   }
 }
 
-/* line 129, ../sass/framework/_layout.scss */
+/* line 130, ../sass/framework/_layout.scss */
 .nav--text {
   display: none;
 }
 @media only screen and (min-width: 43em) {
-  /* line 129, ../sass/framework/_layout.scss */
+  /* line 130, ../sass/framework/_layout.scss */
   .nav--text {
     display: inline;
     font-size: 85%;
@@ -956,22 +973,25 @@ textarea[disabled] {
 }
 
 /* Make the mail icon bigger */
-/* line 143, ../sass/framework/_layout.scss */
+/* line 144, ../sass/framework/_layout.scss */
 .nav--link-mail i[class^="icon-"] {
   font-size: 125%;
   line-height: 190%;
 }
 
 /* Make the menu icon bigger */
-/* line 156, ../sass/framework/_layout.scss */
+/* line 157, ../sass/framework/_layout.scss */
 .nav--link-menu i[class^="icon-"] {
   font-size: 150%;
   line-height: 160%;
 }
 
-/* Notifications
-   ========================================================================== */
-/* line 168, ../sass/framework/_layout.scss */
+/**
+ * Notifications
+ *
+ * @author magnify
+ */
+/* line 10, ../sass/modules/_notifications.scss */
 .notification {
   display: inline-block;
   position: absolute;
@@ -991,7 +1011,7 @@ textarea[disabled] {
   -o-border-radius: 100%;
   border-radius: 100%;
 }
-/* line 184, ../sass/framework/_layout.scss */
+/* line 26, ../sass/modules/_notifications.scss */
 .notification:link, .notification:visited {
   text-decoration: none;
 }
@@ -1001,7 +1021,9 @@ textarea[disabled] {
  *
  * @author magnify
  */
-/* line 8, ../sass/modules/_search.scss */
+/* Search field
+   ========================================================================== */
+/* line 12, ../sass/modules/_search.scss */
 .search {
   float: left;
   width: 100%;
@@ -1019,25 +1041,11 @@ textarea[disabled] {
   _overflow-y: visible;
 }
 
-/* line 12, ../sass/modules/_search.scss */
-.search--inner {
-  padding: 1.5em;
-  background-color: #f2f2f2;
-  -webkit-border-radius: 0.6em;
-  -moz-border-radius: 0.6em;
-  -ms-border-radius: 0.6em;
-  -o-border-radius: 0.6em;
-  border-radius: 0.6em;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-/* line 23, ../sass/modules/_search.scss */
+/* line 21, ../sass/modules/_search.scss */
 .search--field-wrapper {
   position: relative;
 }
-/* line 26, ../sass/modules/_search.scss */
+/* line 24, ../sass/modules/_search.scss */
 .search--field-wrapper .search--icon {
   position: absolute;
   top: .25em;
@@ -1045,25 +1053,24 @@ textarea[disabled] {
   color: #d9d9d9;
   font-size: 200%;
 }
-/* line 35, ../sass/modules/_search.scss */
+/* line 33, ../sass/modules/_search.scss */
 .search--field-wrapper .search--field {
-  margin-bottom: 1.25em;
   padding-left: 3em;
   background-color: white;
 }
 @media only screen and (min-width: 28em) {
-  /* line 43, ../sass/modules/_search.scss */
+  /* line 40, ../sass/modules/_search.scss */
   .search--field-wrapper .search--field {
     min-width: 87%;
   }
 }
 
-/* line 49, ../sass/modules/_search.scss */
+/* line 46, ../sass/modules/_search.scss */
 .search--button {
   width: 100%;
 }
 @media only screen and (min-width: 28em) {
-  /* line 49, ../sass/modules/_search.scss */
+  /* line 46, ../sass/modules/_search.scss */
   .search--button {
     position: absolute;
     bottom: 0;
@@ -1079,3 +1086,6 @@ textarea[disabled] {
     border-radius: 0 0.6em 0.6em 0;
   }
 }
+
+/* Search result
+   ========================================================================== */
