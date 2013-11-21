@@ -1,0 +1,31 @@
+/**
+ * Notifications
+ *
+ * @author magnify
+ */
+
+
+$notification-dimensions: 2em;
+
+.notification {
+  display: inline-block;
+  position: absolute;
+  top: -.5em;
+  right: -.5em;
+  height: $notification-dimensions;
+  width: $notification-dimensions;
+
+  background-color: $red;
+  font-size: 65%;
+  text-decoration: none;
+  line-height: $notification-dimensions;
+  text-align: center;
+  vertical-align: middle;
+
+  &:link,
+  &:visited {
+    text-decoration: none;
+  }
+
+  @include border-radius(100%);
+}
