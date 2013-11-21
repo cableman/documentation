@@ -72,3 +72,23 @@
   @extend %set-max-width-and-center-element;
   @extend %basic-element-styling;
 }
+
+.search-result--question {
+  margin-bottom: $margin-bottom;
+  padding-bottom: $padding-bottom;
+
+  border-bottom: .2em dotted $gray;
+}
+
+.search-result--list {
+  padding-left: 0;
+
+  color: $gray-darker;
+  list-style: none;
+}
+
+.search-result--item {
+  @extend %basic-element-styling;
+
+  background-color: darken($gray-light, 3%);
+}

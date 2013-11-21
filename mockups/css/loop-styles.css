@@ -513,8 +513,8 @@ table {
 }
 
 /* line 27, ../sass/framework/_placeholders.scss */
-.search--inner, .search-result {
-  margin-bottom: 1.25em;
+.search--inner, .search-result, .search-result--item {
+  margin-bottom: 1.5em;
   padding: 1.5em;
   background-color: #f2f2f2;
   -webkit-border-radius: 0.6em;
@@ -549,7 +549,7 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  margin-bottom: 1.25em;
+  margin-bottom: .5em;
   font-family: "Source Sans Pro Semi Bold", "Helvetica Neue", Helvetica, "Lucida Sans Unicode", Arial, sans-serif;
   font-weight: normal;
   /* This fixes huge spaces when a heading wraps onto two lines */
@@ -574,7 +574,7 @@ h3 a:visited,
 h4 a:visited,
 h5 a:visited,
 h6 a:visited {
-  color: #014242;
+  color: #03a6a6;
 }
 /* line 45, ../sass/framework/_base.scss */
 h1 a:hover,
@@ -583,7 +583,7 @@ h3 a:hover,
 h4 a:hover,
 h5 a:hover,
 h6 a:hover {
-  color: #014242;
+  color: #04b0b0;
 }
 /* line 49, ../sass/framework/_base.scss */
 h1 a:focus,
@@ -592,7 +592,7 @@ h3 a:focus,
 h4 a:focus,
 h5 a:focus,
 h6 a:focus {
-  color: #014242;
+  color: #04b0b0;
 }
 /* line 53, ../sass/framework/_base.scss */
 h1 a:active,
@@ -601,7 +601,7 @@ h3 a:active,
 h4 a:active,
 h5 a:active,
 h6 a:active {
-  color: #014242;
+  color: #04b0b0;
 }
 
 /* line 60, ../sass/framework/_base.scss */
@@ -619,52 +619,57 @@ h3 {
   font-size: 170%;
 }
 
-/* line 73, ../sass/framework/_base.scss */
+/* line 72, ../sass/framework/_base.scss */
+h4 {
+  font-size: 150%;
+}
+
+/* line 77, ../sass/framework/_base.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 78, ../sass/framework/_base.scss */
+/* line 82, ../sass/framework/_base.scss */
 em {
   font-style: italic;
 }
-/* line 81, ../sass/framework/_base.scss */
+/* line 85, ../sass/framework/_base.scss */
 em strong {
   font-weight: bold;
 }
 
 /* Links
    ========================================================================== */
-/* line 92, ../sass/framework/_base.scss */
+/* line 96, ../sass/framework/_base.scss */
 a:link {
   color: #04bfbf;
   text-decoration: underline;
 }
-/* line 97, ../sass/framework/_base.scss */
+/* line 101, ../sass/framework/_base.scss */
 a:visited {
   color: #03a6a6;
 }
-/* line 101, ../sass/framework/_base.scss */
+/* line 105, ../sass/framework/_base.scss */
 a:hover {
   color: #038d8d;
   text-decoration: none;
 }
-/* line 106, ../sass/framework/_base.scss */
+/* line 110, ../sass/framework/_base.scss */
 a:focus {
   color: #038d8d;
 }
 
 /* Paragraph
    ========================================================================== */
-/* line 115, ../sass/framework/_base.scss */
+/* line 119, ../sass/framework/_base.scss */
 p {
   margin-top: 0;
-  margin-bottom: 1.25em;
+  margin-bottom: 1.5em;
 }
 
 /* Image
    ========================================================================== */
-/* line 124, ../sass/framework/_base.scss */
+/* line 128, ../sass/framework/_base.scss */
 img {
   display: inline;
   height: auto;
@@ -674,7 +679,7 @@ img {
 
 /* States
    ========================================================================== */
-/* line 136, ../sass/framework/_base.scss */
+/* line 140, ../sass/framework/_base.scss */
 .is-hidden {
   display: none;
 }
@@ -815,7 +820,7 @@ textarea[disabled] {
    ========================================================================== */
 /* line 13, ../sass/framework/_layout.scss */
 .header {
-  margin-bottom: 1.25em;
+  margin-bottom: 1.5em;
   background-color: #79a60b;
   *position: relative;
   *zoom: 1;
@@ -1089,3 +1094,21 @@ textarea[disabled] {
 
 /* Search result
    ========================================================================== */
+/* line 76, ../sass/modules/_search.scss */
+.search-result--question {
+  margin-bottom: 1.5em;
+  padding-bottom: 1.5em;
+  border-bottom: 0.2em dotted #d9d9d9;
+}
+
+/* line 83, ../sass/modules/_search.scss */
+.search-result--list {
+  padding-left: 0;
+  color: gray;
+  list-style: none;
+}
+
+/* line 90, ../sass/modules/_search.scss */
+.search-result--item {
+  background-color: #ebebeb;
+}

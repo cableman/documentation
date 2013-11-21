@@ -39,14 +39,27 @@
 </div>
 <div class="search-result">
   <div class="search-result--inner">
-    <p>Vi fandt deværre ikke et svar spørgsmålet: <strong>&quot;Hvordan dokumenteres delvis aktindsigt&quot;</strong></p>
-    <p>Vi har dog fundet nogle svar der minder om dit spørgsmål, se dem herunder. Kan du stadig ikke finde svar på dit spørgsmål kan du <a href="#">oprette spørgsmålet her</a>.</p>
+    <div class="search-result--question">Dit spørgsmål: <strong>&quot;Hvordan dokumenteres delvis aktindsigt&quot;</strong></div>
     <ul class="search-result--list">
       <li class="search-result--item">
-        <h3 class="search-result--item-title">Title</h3>
+        <h4 class="search-result--item-title"><a href="#">Hvordan dokumenteres delvis aktindsigt? Og findes der en vejledning i dokumentation af aktindsigt?</a></h4>
+        <div>Nej der er ikke en selvstændig vejledning i aktindsigt. Under aktindsigt (i Stamdata) kan Status sættes til Delvis bevilliget samt i bemærkningen kan dokumenteres hvilken sag det omfatter.</div>
+      </li>
+      <li class="search-result--item">
+        <h4 class="search-result--item-title"><a href="#">Ved ordinationer fra egen læge på instruktion i PEP-fløjte, hvilke ydelser kan man bruge til dette?</a></h4>
+        <div>Man giver en Træningsydelse.</div>
+      </li>
+      <li class="search-result--item">
+        <h4 class="search-result--item-title"><a href="#">Er det tilstrækkeligt i forhold til sygeplejefaglig udredning, at en ydelse er tildelt og at de 12 sygeplejefaglige målepunkter er udfyldt under Samlet faglig vurdering?</a></h4>
+        <div>Nej, ved en sundhedsfagligindsats skal der være et fokusområde. Se vejledning for Samlet faglig vurdering og vejledningen for Fokusområder.</div>
+      </li>
+      <li class="search-result--item">
+        <h4 class="search-result--item-title"><a href="#">Skal terapeuter i plejebolig oprette ydelser under sagsark ”træning” eller sagsark ”visitation i plejebolig”?</a></h4>
+        <div>De skal oprettes på sagsarket ‘træning’ med dertilhørende specialark ‘træning’.</div>
       </li>
     </ul>
   </div>
+  <div>Fandt du ikke svar på dit spørgsmål? <a href="#">Opret dit spørgsmål her</a></div>
 </div>
 </body>
 </html>
