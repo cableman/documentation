@@ -14,7 +14,6 @@
 %set-max-width-and-center-element {
   max-width: 31.25em;
   margin-right: auto;
-  margin-bottom: $margin-bottom;
   margin-left: auto;
 
   clear: both;
@@ -26,6 +25,7 @@
 
 
 %basic-element-styling {
+  margin-bottom: $margin-bottom;
   padding: 1.5em;
 
   background-color: $gray-light;
