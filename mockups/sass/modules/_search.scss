@@ -12,7 +12,12 @@
 .search--inner {
   @extend %set-max-width-and-center-element;
 
-  padding-top: 2em;
+  padding: 1.5em;
+
+  background-color: $gray-light;
+
+  @include border-radius($border-radius);
+  @include box-sizing(border-box);
 }
 
 .search--field-wrapper {
@@ -30,6 +35,8 @@
   .search--field {
     margin-bottom: $margin-bottom;
     padding-left: 3em;
+
+    background-color: $white;
   }
 
   @include breakpoint(3) {
