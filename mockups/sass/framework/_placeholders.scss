@@ -15,7 +15,7 @@
   margin-right: auto;
   margin-left: auto;
 
-  @include first-breakpoint() {
+  @include breakpoint(1) {
     max-width: 48em;
   }
 }

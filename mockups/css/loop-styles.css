@@ -439,14 +439,10 @@ table {
    ========================================================================== */
 /* Media queries
    ========================================================================== */
-/* Breakpoints
-   ========================================================================== */
 /* Debugging
    ========================================================================== */
-/* line 60, ../sass/framework/_mediaqueries.scss */
-.first-breakpoint,
-.second-breakpoint,
-.third-breakpoint {
+/* line 47, ../sass/framework/_mediaqueries.scss */
+.breakpoint-1, .breakpoint-2, .breakpoint-3, .breakpoint-4 {
   display: none;
   /* This is debugging so ignoring the one-direction margin rule */
   margin: 1em;
@@ -461,23 +457,34 @@ table {
 }
 
 @media only screen and (min-width: 18.75em) {
-  /* line 73, ../sass/framework/_mediaqueries.scss */
-  .first-breakpoint {
+  /* line 60, ../sass/framework/_mediaqueries.scss */
+  .breakpoint-1 {
     display: block;
+    width: 18.75em;
   }
 }
 
 @media only screen and (min-width: 22.5em) {
-  /* line 79, ../sass/framework/_mediaqueries.scss */
-  .second-breakpoint {
+  /* line 69, ../sass/framework/_mediaqueries.scss */
+  .breakpoint-2 {
     display: block;
+    width: 22.5em;
   }
 }
 
 @media only screen and (min-width: 28em) {
-  /* line 85, ../sass/framework/_mediaqueries.scss */
-  .third-breakpoint {
+  /* line 78, ../sass/framework/_mediaqueries.scss */
+  .breakpoint-3 {
     display: block;
+    width: 28em;
+  }
+}
+
+@media only screen and (min-width: 43em) {
+  /* line 87, ../sass/framework/_mediaqueries.scss */
+  .breakpoint-4 {
+    display: block;
+    width: 43em;
   }
 }
 
@@ -844,19 +851,19 @@ textarea[disabled] {
 /* Navigation
    ========================================================================== */
 /* line 58, ../sass/framework/_layout.scss */
-.responsive-nav {
+.nav {
   text-align: center;
 }
 @media only screen and (min-width: 18.75em) {
   /* line 58, ../sass/framework/_layout.scss */
-  .responsive-nav {
+  .nav {
     padding-top: 1em;
     padding-bottom: 1em;
     text-align: right;
     float: right;
-    width: 66.66667%;
+    width: 83.33333%;
     margin-right: 0%;
-    margin-left: -66.66667%;
+    margin-left: -83.33333%;
     padding-left: 15px;
     padding-right: 15px;
     -moz-box-sizing: border-box;
@@ -875,7 +882,7 @@ textarea[disabled] {
 
 /* Using a variable so we only have to set the size once */
 /* line 77, ../sass/framework/_layout.scss */
-.responsive-nav--link, .responsive-nav--link-mail, .responsive-nav--link-menu {
+.nav--link, .nav--link-mail, .nav--link-menu {
   display: block;
   position: relative;
   height: 2.5em;
@@ -895,16 +902,21 @@ textarea[disabled] {
   border-radius: 100%;
 }
 /* line 93, ../sass/framework/_layout.scss */
-.responsive-nav--link:link, .responsive-nav--link-mail:link, .responsive-nav--link-menu:link, .responsive-nav--link:visited, .responsive-nav--link-mail:visited, .responsive-nav--link-menu:visited {
+.nav--link:link, .nav--link-mail:link, .nav--link-menu:link, .nav--link:visited, .nav--link-mail:visited, .nav--link-menu:visited {
   color: white;
+  text-decoration: none;
 }
-/* line 97, ../sass/framework/_layout.scss */
-.responsive-nav--link:hover, .responsive-nav--link-mail:hover, .responsive-nav--link-menu:hover {
+/* line 98, ../sass/framework/_layout.scss */
+.nav--link:hover, .nav--link-mail:hover, .nav--link-menu:hover {
   background-color: rgba(255, 255, 255, 0.5);
+}
+/* line 102, ../sass/framework/_layout.scss */
+.nav--link i[class^="icon-"], .nav--link-mail i[class^="icon-"], .nav--link-menu i[class^="icon-"] {
+  vertical-align: bottom;
 }
 @media only screen and (min-width: 18.75em) {
   /* line 77, ../sass/framework/_layout.scss */
-  .responsive-nav--link, .responsive-nav--link-mail, .responsive-nav--link-menu {
+  .nav--link, .nav--link-mail, .nav--link-menu {
     display: inline-block;
     margin-bottom: 0;
     margin-left: .25em;
@@ -912,26 +924,53 @@ textarea[disabled] {
 }
 @media only screen and (min-width: 22.5em) {
   /* line 77, ../sass/framework/_layout.scss */
-  .responsive-nav--link, .responsive-nav--link-mail, .responsive-nav--link-menu {
+  .nav--link, .nav--link-mail, .nav--link-menu {
     margin-left: 1em;
+  }
+}
+@media only screen and (min-width: 43em) {
+  /* line 77, ../sass/framework/_layout.scss */
+  .nav--link, .nav--link-mail, .nav--link-menu {
+    padding-right: .75em;
+    padding-left: .75em;
+    width: auto;
+    -webkit-border-radius: 0.6em;
+    -moz-border-radius: 0.6em;
+    -ms-border-radius: 0.6em;
+    -o-border-radius: 0.6em;
+    border-radius: 0.6em;
+  }
+}
+
+/* line 127, ../sass/framework/_layout.scss */
+.nav--text {
+  display: none;
+}
+@media only screen and (min-width: 28em) {
+  /* line 127, ../sass/framework/_layout.scss */
+  .nav--text {
+    display: inline;
+    font-size: 85%;
   }
 }
 
 /* Make the mail icon bigger */
-/* line 118, ../sass/framework/_layout.scss */
-.responsive-nav--link-mail i[class^="icon-"] {
+/* line 141, ../sass/framework/_layout.scss */
+.nav--link-mail i[class^="icon-"] {
   font-size: 125%;
+  line-height: 190%;
 }
 
 /* Make the menu icon bigger */
-/* line 127, ../sass/framework/_layout.scss */
-.responsive-nav--link-menu i[class^="icon-"] {
+/* line 154, ../sass/framework/_layout.scss */
+.nav--link-menu i[class^="icon-"] {
   font-size: 150%;
+  line-height: 160%;
 }
 
 /* Notifications
    ========================================================================== */
-/* line 138, ../sass/framework/_layout.scss */
+/* line 166, ../sass/framework/_layout.scss */
 .notification {
   display: inline-block;
   position: absolute;
@@ -951,7 +990,7 @@ textarea[disabled] {
   -o-border-radius: 100%;
   border-radius: 100%;
 }
-/* line 154, ../sass/framework/_layout.scss */
+/* line 182, ../sass/framework/_layout.scss */
 .notification:link, .notification:visited {
   text-decoration: none;
 }

@@ -32,7 +32,7 @@
     padding-left: 3em;
   }
 
-  @include third-breakpoint() {
+  @include breakpoint(3) {
     .search--field {
       min-width: 87%;
     }
@@ -44,7 +44,7 @@
 
   width: 100%;
 
-  @include third-breakpoint() {
+  @include breakpoint(3) {
     position: absolute;
     bottom: 0;
     right: 0;

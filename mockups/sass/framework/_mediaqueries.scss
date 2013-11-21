@@ -11,53 +11,40 @@
 /* Breakpoints
    ========================================================================== */
 
-$first-breakpoint:                18.75em;
-$second-breakpoint:               22.5em;
-$third-breakpoint:                28em;
+$breakpoint-1:                18.75em;
+$breakpoint-2:               22.5em;
+$breakpoint-3:                28em;
+$breakpoint-4:               43em;
 
 
 
 /* Media queries
    ========================================================================== */
 
-@mixin respond-to($media) {
-  @if $media == first-breakpoint {
-    @media only screen and (min-width: $first-breakpoint) { @content; }
+@mixin breakpoint($breakpoint) {
+  @if $breakpoint == 1 {
+    @media only screen and (min-width: $breakpoint-1) { @content; }
   }
 
-  @if $media == second-breakpoint {
-    @media only screen and (min-width: $second-breakpoint) { @content; }
+  @if $breakpoint == 2 {
+    @media only screen and (min-width: $breakpoint-2) { @content; }
   }
 
-  @if $media == third-breakpoint {
-    @media only screen and (min-width: $third-breakpoint) { @content; }
+  @if $breakpoint == 3 {
+    @media only screen and (min-width: $breakpoint-3) { @content; }
+  }
+
+  @if $breakpoint == 4 {
+    @media only screen and (min-width: $breakpoint-4) { @content; }
   }
 }
 
-
-
-/* Breakpoints
-   ========================================================================== */
-
-@mixin first-breakpoint {
-  @include respond-to(first-breakpoint) { @content; }
-}
-
-@mixin second-breakpoint {
-  @include respond-to(second-breakpoint) { @content; }
-}
-
-@mixin third-breakpoint {
-  @include respond-to(third-breakpoint) { @content; }
-}
 
 
 /* Debugging
    ========================================================================== */
 
-.first-breakpoint,
-.second-breakpoint,
-.third-breakpoint {
+%breakpoint {
   display: none;
 
   /* This is debugging so ignoring the one-direction margin rule */
@@ -70,20 +57,38 @@ $third-breakpoint:                28em;
   @include border-radius(2em)
 }
 
-.first-breakpoint {
-  @include first-breakpoint() {
+.breakpoint-1 {
+  @extend %breakpoint;
+
+  @include breakpoint(1) {
     display: block;
+    width: $breakpoint-1;
   }
 }
 
-.second-breakpoint {
-  @include second-breakpoint() {
+.breakpoint-2 {
+  @extend %breakpoint;
+
+  @include breakpoint(2) {
     display: block;
+    width: $breakpoint-2;
   }
 }
 
-.third-breakpoint {
-  @include third-breakpoint() {
+.breakpoint-3 {
+  @extend %breakpoint;
+
+  @include breakpoint(3) {
     display: block;
+    width: $breakpoint-3;
+  }
+}
+
+.breakpoint-4 {
+  @extend %breakpoint;
+
+  @include breakpoint(4) {
+    display: block;
+    width: $breakpoint-4;
   }
 }
