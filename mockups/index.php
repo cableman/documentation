@@ -32,7 +32,7 @@
         <i class="search--icon icon-search"></i>
         <input type="text" placeholder="Skriv f.eks. hvordan støvsuger man" class="search--field">
       </div>
-      <input type="submit">
+      <input type="submit" class="button--action" value="Søg">
     </form>
   </div>
 </div>

@@ -17,7 +17,7 @@ $zen-gutter-width: 30px;
 /* Layout
    ========================================================================== */
 
-$border-radius:    12px;
+$border-radius:    .6em;
 
 
 
@@ -27,6 +27,7 @@ $border-radius:    12px;
 $black:            #000;
 $white:            #fff;
 $green:            #3e8c2d;
+$green-light:      #a9cf54;
 $red:              #ff6138;
 $gray:             lighten($black, 85%);
 $gray-light:       lighten($black, 95%);
