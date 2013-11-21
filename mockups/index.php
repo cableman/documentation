@@ -4,6 +4,7 @@
 <body>
 <div class="first-breakpoint">First breakpoint active</div>
 <div class="second-breakpoint">Second breakpoint active</div>
+<div class="third-breakpoint">Third breakpoint active</div>
 <header class="header" role="banner">
   <div class="header--inner">
     <a href="#top" class="logo--link"><img src="logo.png" alt="" class="logo--image"></a>
@@ -31,8 +32,8 @@
       <div class="search--field-wrapper">
         <i class="search--icon icon-search"></i>
         <input type="text" placeholder="Skriv f.eks. hvordan støvsuger man" class="search--field">
+        <input type="submit" class="search--button" value="Søg">
       </div>
-      <input type="submit" class="button--action" value="Søg">
     </form>
   </div>
 </div>

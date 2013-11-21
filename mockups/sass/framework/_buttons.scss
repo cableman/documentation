@@ -6,8 +6,6 @@
 
 
 %button {
-  @include border-radius($border-radius);
-
   display: inline-block;
   font-size: 125%;
   padding: .5em 1.5em;
@@ -23,6 +21,7 @@
     text-decoration: none;
   }
 
+  @include border-radius($border-radius);
   @include text-shadow(.025em .025em .1em lighten($green, 0%));
 }
 

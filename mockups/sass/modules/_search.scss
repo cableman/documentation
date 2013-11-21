@@ -20,7 +20,7 @@
 
   .search--icon {
     position: absolute;
-    bottom: .25em;
+    top: .25em;
     left: .15em;
 
     color: $gray;
@@ -28,7 +28,33 @@
   }
 
   .search--field {
+    margin-bottom: $margin-bottom;
     padding-left: 3em;
+  }
+
+  @include third-breakpoint() {
+    .search--field {
+      min-width: 87%;
+    }
   }
 }
 
+.search--button {
+  @extend .button--action;
+
+  width: 100%;
+
+  @include third-breakpoint() {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    padding-top: .65em;
+    padding-bottom: .65em;
+    width: auto;
+
+    font-size: 150%;
+
+    @include border-radius(0 $border-radius $border-radius 0);
+  }
+}
