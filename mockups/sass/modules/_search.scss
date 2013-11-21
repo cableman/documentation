@@ -1,0 +1,60 @@
+/**
+ * Search module
+ *
+ * @author magnify
+ */
+
+
+.search {
+  @include zen-grid-item(12, 1);
+}
+
+.search--inner {
+  @extend %set-max-width-and-center-element;
+
+  padding-top: 2em;
+}
+
+.search--field-wrapper {
+  position: relative;
+
+  .search--icon {
+    position: absolute;
+    top: .25em;
+    left: .15em;
+
+    color: $gray;
+    font-size: 200%;
+  }
+
+  .search--field {
+    margin-bottom: $margin-bottom;
+    padding-left: 3em;
+  }
+
+  @include breakpoint(3) {
+    .search--field {
+      min-width: 87%;
+    }
+  }
+}
+
+.search--button {
+  @extend .button--action;
+
+  width: 100%;
+
+  @include breakpoint(3) {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    padding-top: .65em;
+    padding-bottom: .65em;
+    width: auto;
+
+    font-size: 150%;
+
+    @include border-radius(0 $border-radius $border-radius 0);
+  }
+}

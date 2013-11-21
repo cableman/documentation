@@ -1,0 +1,38 @@
+/**
+ * Buttons
+ *
+ * @author magnify
+ */
+
+
+%button {
+  display: inline-block;
+  font-size: 125%;
+  padding: .5em 1.5em;
+  position: relative;
+
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+
+  &:focus,
+  &:hover,
+  &:active {
+    text-decoration: none;
+  }
+
+  @include border-radius($border-radius);
+  @include text-shadow(.025em .025em .1em lighten($green, 0%));
+}
+
+.button--action {
+  @extend %button;
+
+  background-color: $green-light;
+  border: 1px solid $green;
+  color: $white;
+
+  &:hover {
+    background-color: $green;
+  }
+}

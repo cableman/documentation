@@ -1,0 +1,21 @@
+/**
+ * Placeholders
+ *
+ * This contains placeholders used with @extend in rulesets
+ *
+ * @author magnify
+ */
+
+
+/* Layout placeholders
+   ========================================================================== */
+
+%set-max-width-and-center-element {
+  max-width: 31.25em;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include breakpoint(1) {
+    max-width: 48em;
+  }
+}
