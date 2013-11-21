@@ -32,7 +32,7 @@
       <label class="form-label">Søg efter svar</label>
       <div class="search--field-wrapper">
         <i class="search--icon icon-search"></i>
-        <input type="text" placeholder="Skriv f.eks. hvordan støvsuger man" class="search--field">
+        <input type="text" placeholder="Skriv f.eks. hvordan tilknytter jeg et materiale" class="search--field">
         <input type="submit" class="search--button" value="Søg">
       </div>
     </form>
