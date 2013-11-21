@@ -947,7 +947,7 @@ textarea[disabled] {
 .nav--text {
   display: none;
 }
-@media only screen and (min-width: 28em) {
+@media only screen and (min-width: 43em) {
   /* line 129, ../sass/framework/_layout.scss */
   .nav--text {
     display: inline;
