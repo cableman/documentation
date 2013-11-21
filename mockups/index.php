@@ -7,7 +7,7 @@
 ?>
 <header class="header" role="banner">
   <div class="header--inner">
-    <a href="#top" class="logo--link"><img src="logo.png" alt="" class="logo--image"></a>
+    <a href="/" class="logo--link"><img src="logo.png" alt="" class="logo--image"></a>
     <nav class="nav">
       <a href="#" title="Min konto" class="nav--link">
         <i class="icon-user"></i>
@@ -31,7 +31,7 @@
       <label class="form-label">Søg efter svar</label>
       <div class="search--field-wrapper">
         <i class="search--icon icon-search"></i>
-        <input type="text" placeholder="Skriv f.eks. hvordan tilknytter jeg et materiale" class="search--field">
+        <input type="text" placeholder="Skriv f.eks. &quot;Hvordan dokumenteres delvis aktindsigt&quot;" class="search--field">
         <input type="submit" class="search--button" value="Søg">
       </div>
     </form>

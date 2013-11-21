@@ -7,7 +7,7 @@
 ?>
 <header class="header" role="banner">
   <div class="header--inner">
-    <a href="#top" class="logo--link"><img src="logo.png" alt="" class="logo--image"></a>
+    <a href="/" class="logo--link"><img src="logo.png" alt="" class="logo--image"></a>
     <nav class="nav">
       <a href="#" title="Min konto" class="nav--link">
         <i class="icon-user"></i>
@@ -31,14 +31,22 @@
       <label class="form-label">Søg efter svar</label>
       <div class="search--field-wrapper">
         <i class="search--icon icon-search"></i>
-        <input type="text" placeholder="Skriv f.eks. hvordan tilknytter jeg et materiale" value="Søgeord" class="search--field">
+        <input type="text" placeholder="Skriv f.eks. &quot;Hvordan dokumenteres delvis aktindsigt&quot;" value="Hvordan dokumenteres delvis aktindsigt" class="search--field">
         <input type="submit" class="search--button" value="Søg">
       </div>
     </form>
   </div>
 </div>
 <div class="search-result">
-dasda
+  <div class="search-result--inner">
+    <p>Vi fandt deværre ikke et svar spørgsmålet: <strong>&quot;Hvordan dokumenteres delvis aktindsigt&quot;</strong></p>
+    <p>Vi har dog fundet nogle svar der minder om dit spørgsmål, se dem herunder. Kan du stadig ikke finde svar på dit spørgsmål kan du <a href="#">oprette spørgsmålet her</a>.</p>
+    <ul class="search-result--list">
+      <li class="search-result--item">
+        <h3 class="search-result--item-title">Title</h3>
+      </li>
+    </ul>
+  </div>
 </div>
 </body>
 </html>
