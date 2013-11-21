@@ -762,7 +762,7 @@ textarea[disabled] {
   -ms-border-radius: 0.6em;
   -o-border-radius: 0.6em;
   border-radius: 0.6em;
-  text-shadow: 0.025em 0.025em 0.1em #3e8c2d;
+  text-shadow: 0.025em 0.025em 0.1em #79a60b;
 }
 /* line 20, ../sass/framework/_buttons.scss */
 .button--action:focus, .search--button:focus, .button--action:hover, .search--button:hover, .button--action:active, .search--button:active {
@@ -771,22 +771,13 @@ textarea[disabled] {
 
 /* line 28, ../sass/framework/_buttons.scss */
 .button--action, .search--button {
-  background-color: #a9cf54;
-  border: 1px solid #638024;
+  background-color: #8ebe18;
+  border: 1px solid #79a60b;
   color: white;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #638024), color-stop(100%, #a9cf54));
-  background-image: -webkit-linear-gradient(#638024, #a9cf54);
-  background-image: -moz-linear-gradient(#638024, #a9cf54);
-  background-image: -o-linear-gradient(#638024, #a9cf54);
-  background-image: linear-gradient(#638024, #a9cf54);
 }
 /* line 35, ../sass/framework/_buttons.scss */
 .button--action:hover, .search--button:hover {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #546c1e), color-stop(100%, #92bb35));
-  background-image: -webkit-linear-gradient(#546c1e, #92bb35);
-  background-image: -moz-linear-gradient(#546c1e, #92bb35);
-  background-image: -o-linear-gradient(#546c1e, #92bb35);
-  background-image: linear-gradient(#546c1e, #92bb35);
+  background-color: #79a60b;
 }
 
 /**
@@ -800,7 +791,7 @@ textarea[disabled] {
    ========================================================================== */
 /* line 13, ../sass/framework/_layout.scss */
 .header {
-  background-color: #3e8c2d;
+  background-color: #79a60b;
   *position: relative;
   *zoom: 1;
 }
