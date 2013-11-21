@@ -5,19 +5,17 @@
  */
 
 
+
+/* Search field
+   ========================================================================== */
+
 .search {
   @include zen-grid-item(12, 1);
 }
 
 .search--inner {
   @extend %set-max-width-and-center-element;
-
-  padding: 1.5em;
-
-  background-color: $gray-light;
-
-  @include border-radius($border-radius);
-  @include box-sizing(border-box);
+  @extend %basic-element-styling;
 }
 
 .search--field-wrapper {
@@ -33,7 +31,6 @@
   }
 
   .search--field {
-    margin-bottom: $margin-bottom;
     padding-left: 3em;
 
     background-color: $white;
@@ -64,4 +61,14 @@
 
     @include border-radius(0 $border-radius $border-radius 0);
   }
+}
+
+
+
+/* Search result
+   ========================================================================== */
+
+.search-result {
+  @extend %set-max-width-and-center-element;
+  @extend %basic-element-styling;
 }
