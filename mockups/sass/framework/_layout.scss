@@ -127,7 +127,7 @@ $nav-link-dimensions: 2.5em;
 .nav--text {
   display: none;
 
-  @include breakpoint(3) {
+  @include breakpoint(4) {
     display: inline;
 
     font-size: 85%;
