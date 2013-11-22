@@ -1,0 +1,23 @@
+/**
+ * Lists
+ *
+ * @author magnify
+ */
+
+.content-list {
+  padding-left: 0;
+
+  color: $gray-darker;
+  list-style: none;
+}
+
+.content-list--item {
+  @extend %basic-element-styling;
+
+  background-color: darken($gray-light, 3%);
+
+  &.is-last {
+    margin-bottom: 0;
+  }
+}
+

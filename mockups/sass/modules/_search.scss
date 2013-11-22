@@ -31,6 +31,9 @@
   }
 
   .search--field {
+    padding-top: 1.25em;
+    padding-right: 1.25em;
+    padding-bottom: 1.25em;
     padding-left: 3em;
 
     background-color: $white;
@@ -78,17 +81,4 @@
   padding-bottom: $padding-bottom;
 
   border-bottom: .2em dotted $gray;
-}
-
-.search-result--list {
-  padding-left: 0;
-
-  color: $gray-darker;
-  list-style: none;
-}
-
-.search-result--item {
-  @extend %basic-element-styling;
-
-  background-color: darken($gray-light, 3%);
 }

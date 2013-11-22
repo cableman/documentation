@@ -499,7 +499,7 @@ table {
    ========================================================================== */
 /* Used for centering a section */
 /* line 14, ../sass/framework/_placeholders.scss */
-.header--inner, .search--inner, .search-result {
+.header--inner, .search--inner, .search-result, .question--inner {
   max-width: 31.25em;
   margin-right: auto;
   margin-left: auto;
@@ -507,13 +507,13 @@ table {
 }
 @media only screen and (min-width: 18.75em) {
   /* line 14, ../sass/framework/_placeholders.scss */
-  .header--inner, .search--inner, .search-result {
+  .header--inner, .search--inner, .search-result, .question--inner {
     max-width: 48em;
   }
 }
 
 /* line 27, ../sass/framework/_placeholders.scss */
-.search--inner, .search-result, .search-result--item {
+.search--inner, .search-result, .question--inner, .content-list--item {
   margin-bottom: 1.5em;
   padding: 1.5em;
   background-color: #f2f2f2;
@@ -605,63 +605,43 @@ h6 a:active {
 }
 
 /* line 60, ../sass/framework/_base.scss */
-h1 {
-  font-size: 300%;
-}
-
-/* line 64, ../sass/framework/_base.scss */
-h2 {
-  font-size: 220%;
-}
-
-/* line 68, ../sass/framework/_base.scss */
-h3 {
-  font-size: 170%;
-}
-
-/* line 72, ../sass/framework/_base.scss */
-h4 {
-  font-size: 150%;
-}
-
-/* line 77, ../sass/framework/_base.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 82, ../sass/framework/_base.scss */
+/* line 65, ../sass/framework/_base.scss */
 em {
   font-style: italic;
 }
-/* line 85, ../sass/framework/_base.scss */
+/* line 68, ../sass/framework/_base.scss */
 em strong {
   font-weight: bold;
 }
 
 /* Links
    ========================================================================== */
-/* line 96, ../sass/framework/_base.scss */
+/* line 79, ../sass/framework/_base.scss */
 a:link {
   color: #04bfbf;
   text-decoration: underline;
 }
-/* line 101, ../sass/framework/_base.scss */
+/* line 84, ../sass/framework/_base.scss */
 a:visited {
   color: #03a6a6;
 }
-/* line 105, ../sass/framework/_base.scss */
+/* line 88, ../sass/framework/_base.scss */
 a:hover {
   color: #038d8d;
   text-decoration: none;
 }
-/* line 110, ../sass/framework/_base.scss */
+/* line 93, ../sass/framework/_base.scss */
 a:focus {
   color: #038d8d;
 }
 
 /* Paragraph
    ========================================================================== */
-/* line 119, ../sass/framework/_base.scss */
+/* line 102, ../sass/framework/_base.scss */
 p {
   margin-top: 0;
   margin-bottom: 1.5em;
@@ -669,19 +649,12 @@ p {
 
 /* Image
    ========================================================================== */
-/* line 128, ../sass/framework/_base.scss */
+/* line 111, ../sass/framework/_base.scss */
 img {
   display: inline;
   height: auto;
   max-width: 100%;
   vertical-align: bottom;
-}
-
-/* States
-   ========================================================================== */
-/* line 140, ../sass/framework/_base.scss */
-.is-hidden {
-  display: none;
 }
 
 /**
@@ -713,9 +686,9 @@ textarea {
   display: block;
   min-height: 1.25em;
   min-width: 100%;
-  padding: 1.25em;
+  padding: .75em;
   color: gray;
-  background-color: #f2f2f2;
+  background-color: white;
   -webkit-border-radius: 0.6em;
   -moz-border-radius: 0.6em;
   -ms-border-radius: 0.6em;
@@ -738,10 +711,9 @@ input[type="time"]:focus,
 input[type="url"]:focus,
 textarea:focus {
   border: 1px solid #bfbfbf;
-  background-color: #f7f7f7;
   color: #1a1a1a;
 }
-/* line 44, ../sass/framework/_forms.scss */
+/* line 43, ../sass/framework/_forms.scss */
 input[type="text"][disabled],
 input[type="password"][disabled],
 input[type="date"][disabled],
@@ -762,7 +734,7 @@ textarea[disabled] {
 
 /* Labels
    ========================================================================== */
-/* line 60, ../sass/framework/_forms.scss */
+/* line 59, ../sass/framework/_forms.scss */
 .form-label {
   display: block;
   margin-bottom: .25em;
@@ -791,7 +763,7 @@ textarea[disabled] {
   -ms-border-radius: 0.6em;
   -o-border-radius: 0.6em;
   border-radius: 0.6em;
-  text-shadow: 0.025em 0.025em 0.1em #79a60b;
+  text-shadow: 0.025em 0.025em 0.1em #41ab51;
 }
 /* line 20, ../sass/framework/_buttons.scss */
 .button--action:focus, .search--button:focus, .button--action:hover, .search--button:hover, .button--action:active, .search--button:active {
@@ -800,13 +772,13 @@ textarea[disabled] {
 
 /* line 28, ../sass/framework/_buttons.scss */
 .button--action, .search--button {
-  background-color: #8ebe18;
-  border: 1px solid #79a60b;
+  background-color: #5dc26d;
+  border: 1px solid #41ab51;
   color: white;
 }
 /* line 35, ../sass/framework/_buttons.scss */
 .button--action:hover, .search--button:hover {
-  background-color: #79a60b;
+  background-color: #41ab51;
 }
 
 /**
@@ -821,7 +793,7 @@ textarea[disabled] {
 /* line 13, ../sass/framework/_layout.scss */
 .header {
   margin-bottom: 1.5em;
-  background-color: #79a60b;
+  background-color: #41ab51;
   *position: relative;
   *zoom: 1;
 }
@@ -1060,22 +1032,25 @@ textarea[disabled] {
 }
 /* line 33, ../sass/modules/_search.scss */
 .search--field-wrapper .search--field {
+  padding-top: 1.25em;
+  padding-right: 1.25em;
+  padding-bottom: 1.25em;
   padding-left: 3em;
   background-color: white;
 }
 @media only screen and (min-width: 28em) {
-  /* line 40, ../sass/modules/_search.scss */
+  /* line 43, ../sass/modules/_search.scss */
   .search--field-wrapper .search--field {
     min-width: 87%;
   }
 }
 
-/* line 46, ../sass/modules/_search.scss */
+/* line 49, ../sass/modules/_search.scss */
 .search--button {
   width: 100%;
 }
 @media only screen and (min-width: 28em) {
-  /* line 46, ../sass/modules/_search.scss */
+  /* line 49, ../sass/modules/_search.scss */
   .search--button {
     position: absolute;
     bottom: 0;
@@ -1094,21 +1069,41 @@ textarea[disabled] {
 
 /* Search result
    ========================================================================== */
-/* line 76, ../sass/modules/_search.scss */
+/* line 79, ../sass/modules/_search.scss */
 .search-result--question {
   margin-bottom: 1.5em;
   padding-bottom: 1.5em;
   border-bottom: 0.2em dotted #d9d9d9;
 }
 
-/* line 83, ../sass/modules/_search.scss */
-.search-result--list {
+/**
+ * Question module
+ *
+ * @author magnify
+ */
+/* line 14, ../sass/modules/_question.scss */
+.question--answer {
+  color: #41ab51;
+  font-weight: bold;
+}
+
+/**
+ * Lists
+ *
+ * @author magnify
+ */
+/* line 7, ../sass/modules/_lists.scss */
+.content-list {
   padding-left: 0;
   color: gray;
   list-style: none;
 }
 
-/* line 90, ../sass/modules/_search.scss */
-.search-result--item {
+/* line 14, ../sass/modules/_lists.scss */
+.content-list--item {
   background-color: #ebebeb;
+}
+/* line 19, ../sass/modules/_lists.scss */
+.content-list--item.is-last {
+  margin-bottom: 0;
 }

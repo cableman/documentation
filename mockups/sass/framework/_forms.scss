@@ -29,15 +29,14 @@ textarea {
   display: block;
   min-height: 1.25em;
   min-width: 100%;
-  padding: 1.25em;
+  padding: .75em;
 
   color: $gray-darker;
-  background-color: $gray-light;
+  background-color: $white;
 
   &:focus {
     border: 1px solid $gray-dark;
 
-    background-color: darken($white, 3%);
     color: $gray-darkest;
   }
 

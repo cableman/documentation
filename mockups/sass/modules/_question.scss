@@ -1,0 +1,17 @@
+/**
+ * Question module
+ *
+ * @author magnify
+ */
+
+
+
+.question--inner {
+  @extend %set-max-width-and-center-element;
+  @extend %basic-element-styling;
+}
+
+.question--answer {
+  color: $green;
+  font-weight: bold;
+}

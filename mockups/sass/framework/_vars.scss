@@ -26,8 +26,8 @@ $border-radius:    .6em;
 
 $black:            #000;
 $white:            #fff;
-$green:            #79a60b;
-$green-light:      #8ebe18;
+$green:            #41ab51;
+$green-light:      lighten($green, 10%);
 $red:              #ff6138;
 $gray:             lighten($black, 85%);
 $gray-light:       lighten($black, 95%);
