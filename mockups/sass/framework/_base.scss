@@ -23,7 +23,7 @@ h6 {
   margin-top: 0;
   margin-bottom: .5em;
 
-  font-family: "Source Sans Pro Semi Bold", "Helvetica Neue", Helvetica, "Lucida Sans Unicode", Arial, sans-serif;
+  font-family: $font;
   font-weight: normal;
 
   /* This fixes huge spaces when a heading wraps onto two lines */

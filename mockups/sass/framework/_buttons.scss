@@ -22,7 +22,7 @@
   }
 
   @include border-radius($border-radius);
-  @include text-shadow(.025em .025em .1em lighten($green, 0%));
+  @include text-shadow(.025em .025em .1em darken($green, 10%));
 }
 
 .button--action {
