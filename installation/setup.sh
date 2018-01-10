@@ -200,6 +200,41 @@ DELIM
   SECRET=`pwgen 21 1`
   sed -i "/\"secret\": \"MySuperSecret\",/c \"secret\": \"${SECRET}\"," config.json  
 
+  # Add supervisor startup script.
+  read -p "Who should the search node be runned as ($(whoami)): " USER
+  if [ -z $USER ]; then
+    USER=$(whoami)
+  fi
+  cat > /etc/supervisor/conf.d/search_node.conf <<DELIM
+[program:search-node]
+command=node ${INSTALL_PATH}/app.js
+autostart=true
+autorestart=true
+environment=NODE_ENV=production
+stderr_logfile=/var/log/search-node.err.log
+stdout_logfile=/var/log/search-node.out.log
+user=${USER}
+DELIM
+
+  # Change owner of search node to the selected user.
+  chown -R ${USER} ${INSTALL_PATH}
+
+  # Start search node and activate index.
+  service supervisor restart
+
+  echo " "
+  echo " "
+  echo "${GREEN}Search node installed...${RESET}"
+  echo -n "Admin password: "
+  echo ${ADMIN_PASSWD}
+  echo " "
+  echo " "
+}
+
+##
+# Single site setup for search node (index + keys).
+##
+function setupLoopSearchNode {
   read -p "Name to identify the 'type-a-head' search index by (loop-type-ahead-index): " TAH_NAME
   if [ -z $TAH_NAME ]; then
     TAH_NAME="loop-type-ahead-index"
@@ -446,42 +481,12 @@ DELIM
   # @TODO: Activate indexes. (get /api/:index/activate) - (post '/login').
   #
   ##
-
-  # Add supervisor startup script.
-  read -p "Who should the search node be runned as ($(whoami)): " USER
-  if [ -z $USER ]; then
-    USER=$(whoami)
-  fi
-  cat > /etc/supervisor/conf.d/search_node.conf <<DELIM
-[program:search-node]
-command=node ${INSTALL_PATH}/app.js
-autostart=true
-autorestart=true
-environment=NODE_ENV=production
-stderr_logfile=/var/log/search-node.err.log
-stdout_logfile=/var/log/search-node.out.log
-user=${USER}
-DELIM
-
-  # Change owner of search node to the selected user.
-  chown -R ${USER} ${INSTALL_PATH}
-
-  # Start search node and activate index.
-  service supervisor restart
-
-  echo " "
-  echo " "
-  echo "${GREEN}Search node installed...${RESET}"
-  echo -n "Admin password: "
-  echo ${ADMIN_PASSWD}
-  echo " "
-  echo " "
 }
 
 ##
 #
 ##
-function setupLoop {
+function setupDrupalLoop {
   while true; do
     read -p "Where to place loop (/home/www/loop): " INSTALL_PATH
     if [ -z $INSTALL_PATH ]; then
@@ -520,17 +525,56 @@ MYSQL_SCRIPT
   ADMIN_PASSWD=`pwgen 12 1`
   drush --yes --root="${INSTALL_PATH}" site-install loopdk --db-url="mysql://${MYSQL_USER}:${MYSQL_PASS}@localhost/${MYSQL_DB}" --site-name=${DOMAIN} --account-name=admin --account-pass=${ADMIN_PASSWD}
 
-  ##
-  #
-  # @TODO: apache configuration
-  #
-  ##
+  # Apache configuration.
+  CONF_FILE=${DOMAIN//./_}
+  cat > /etc/apache2/sites-available/${CONF_FILE}.conf <<DELIM
+<VirtualHost *:80>
+  ServerName ${DOMAIN}
+  Redirect permanent / https://${DOMAIN}
+</VirtualHost>
 
-  ##
-  #
-  # @TODO: Search node configuration
-  #
-  ##
+<IfModule mod_ssl.c>
+  <VirtualHost _default_:443>
+    ServerAdmin webmaster@localhost
+    ServerName ${DOMAIN}
+
+    DocumentRoot ${INSTALL_PATH}
+    <Directory ${INSTALL_PATH}>
+      Options FollowSymLinks
+      AllowOverride All
+      Require all granted
+    </Directory>
+
+    <IfModule mod_deflate.c>
+      SetOutputFilter DEFLATE
+      SetEnvIfNoCase Request_URI \.(?:gif|jpg|png|ico|zip|gz|mp4|flv)$ no-gzip
+    </IfModule>
+
+    ErrorLog ${APACHE_LOG_DIR}/${CONF_FILE}_error.log
+    CustomLog ${APACHE_LOG_DIR}/${CONF_FILE}_access.log combined
+
+    SSLEngine on
+    SSLCertificateFile ${CERT}
+    SSLCertificateKeyFile ${CERTKEY}
+
+    <FilesMatch "\.(cgi|shtml|phtml|php)$">
+        SSLOptions +StdEnvVars
+    </FilesMatch>
+
+    BrowserMatch "MSIE [2-6]" \
+        nokeepalive ssl-unclean-shutdown \
+        downgrade-1.0 force-response-1.0
+    # MSIE 7 and newer should be able to use keepalive
+    BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
+
+  </VirtualHost>
+</IfModule>
+DELIM
+
+  a2ensite ${CONF_FILE}.conf
+
+  # Search node site configuration
+  setupSearchNode;
 
   echo " "
   echo " "
@@ -539,8 +583,6 @@ MYSQL_SCRIPT
   echo ${ADMIN_PASSWD}
   echo " "
   echo " "
-
-
 }
 
 ##
@@ -572,7 +614,7 @@ while (true); do
       ;;
 
     2)
-      setupLoop;
+      setupDrupalLoop;
       restartServices;
       ;;
 
