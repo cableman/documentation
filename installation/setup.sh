@@ -649,6 +649,7 @@ DELIM
   echo "${GREEN}Change loop to use search node...${RESET}"
   drush --yes --root="${INSTALL_PATH}" dis loop_search search_api_spellcheck search_api_views search_api_page search_api_solr
   drush --yes --root="${INSTALL_PATH}" pm-uninstall loop_search search_api_spellcheck search_api_views search_api_page search_api_solr
+  drush --yes --root="${INSTALL_PATH}" en search_api_search_node 
   drush --yes --root="${INSTALL_PATH}" en loop_search_node loop_search_node_settings search_node_page 
 
   echo " "
