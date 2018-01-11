@@ -200,6 +200,14 @@ DELIM
   SECRET=`pwgen 21 1`
   sed -i "/\"secret\": \"MySuperSecret\",/c \"secret\": \"${SECRET}\"," config.json  
 
+  cat > ${INSTALL_PATH}/mappings.json <<DELIM
+    {}
+DELIM
+
+  cat > ${INSTALL_PATH}/apikeys.json <<DELIM
+    {}
+DELIM
+
   # Add supervisor startup script.
   read -p "Who should the search node be runned as ($(whoami)): " USER
   if [ -z $USER ]; then
@@ -236,83 +244,68 @@ DELIM
 ##
 function setupLoopSearchNode {
   ## Login as admin.
-  curl -X POST \
-  http://192.168.50.101:3010/login \
-    -H 'cache-control: no-cache' \
-    -H 'content-type: application/json' \
-    -H 'postman-token: 68c376ca-22e2-31d7-ef44-5710ebecd55e' \
-    -d '{"username": "admin", "password": "ti6eeBahngei"}'
+  while true; do
+    read -p "Search node admin password: " ADMIN_PASSWD
+    TOKEN=$(curl -X POST -s \
+      http://localhost:3010/login \
+        -H 'content-type: application/json' \
+        -d "{\"username\": \"admin\", \"password\": \"${ADMIN_PASSWD}\"}" | jq .token)
+    if [[ $TOKEN != "null" ]]; then
+      TOKEN=`echo ${TOKEN} | sed -e 's/^"//' -e 's/"$//'`
+      break;
+    fi
+    echo "${RED}Wrong password...${RESET}"
+  done;
 
-  ## Activate index
-  curl -X GET \
-    http://192.168.50.101:3010/api/admin/index/3ab41fe5fb664a3b6229871323e221ef/activate \
-    -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE1MTU2MDE4ODMsImV4cCI6MTUxNTYxOTg4M30.pMI8WbS0q8cT7W8NhdElv4XGiQVN3huQJnmo_lJItaw' \
-    -H 'Cache-Control: no-cache' \
-    -H 'Postman-Token: 501d02c7-b712-9c4c-3acc-d5ca4ff7f2cb'
-
-  ## Create mapping
-  curl -X POST \
-  http://192.168.50.101:3010/api/admin/mapping/198c1964507c67432ee7049d60c0350d \
-  -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE1MTU2MDE4ODMsImV4cCI6MTUxNTYxOTg4M30.pMI8WbS0q8cT7W8NhdElv4XGiQVN3huQJnmo_lJItaw' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \
-  -H 'Postman-Token: 5c46b8f6-8201-21c9-bec4-be690fa58ba7' \
-  -d '{
-    "name": "loop-type-ahead-index",
-    "fields": [
-      {
-        "type": "string",
-        "country": "DK",
-        "language": "da",
-        "default_analyzer": "analyzer_startswith",
-        "sort": false,
-        "indexable": true,
-        "raw": false,
-        "geopoint": false,
-        "field": "title",
-        "default_indexer": "analyzed"
-      }
-    ],
-    "dates": [],
-    "tag": "private"
-  }'
-
-
+  ## Create type-a-head mapping
   read -p "Name to identify the 'type-a-head' search index by (loop-type-ahead-index): " TAH_NAME
   if [ -z $TAH_NAME ]; then
     TAH_NAME="loop-type-ahead-index"
   fi
   TAH_INDEX=`echo $TAH_NAME | md5sum | cut -f1 -d" "`
 
+  curl -X POST -s \
+    "http://localhost:3010/api/admin/mapping/${TAH_INDEX}" \
+    -H "Authorization: Bearer ${TOKEN}" \
+    -H 'Content-Type: application/json' \
+    -d '{
+      "name": "loop-type-ahead-index",
+      "fields": [
+        {
+          "type": "string",
+          "country": "DK",
+          "language": "da",
+          "default_analyzer": "analyzer_startswith",
+          "sort": false,
+          "indexable": true,
+          "raw": false,
+          "geopoint": false,
+          "field": "title",
+          "default_indexer": "analyzed"
+        }
+      ],
+      "dates": [],
+      "tag": "private"
+    }' > /dev/null
+
+  ## Activate index
+  curl -X GET -s \
+    "http://localhost:3010/api/admin/index/${TAH_INDEX}/activate" \
+    -H "Authorization: Bearer ${TOKEN}" > /dev/null
+
+  ## Create post's mappings
   read -p "Name to identify the 'post' search index by (loop-post-index): " POST_NAME
   if [ -z $POST_NAME ]; then
     POST_NAME="loop-post-index"
   fi
   POST_INDEX=`echo $POST_NAME | md5sum | cut -f1 -d" "`
 
-  cat > ${INSTALL_PATH}/mappings.json <<DELIM
-{
-  "${TAH_INDEX}": {
-    "name": "${TAH_NAME}",
-    "fields": [
-      {
-        "type": "string",
-        "country": "DK",
-        "language": "da",
-        "default_analyzer": "analyzer_startswith",
-        "sort": false,
-        "indexable": true,
-        "raw": false,
-        "geopoint": false,
-        "field": "title",
-        "default_indexer": "analyzed"
-      }
-    ],
-    "dates": [],
-    "tag": "private"
-  },
-  "${POST_INDEX}": {
-    "name": "${POST_NAME}",
+  curl -X POST -s \
+    "http://localhost:3010/api/admin/mapping/${POST_INDEX}" \
+    -H "Authorization: Bearer ${TOKEN}" \
+    -H 'Content-Type: application/json' \
+    -d '{
+    "name": "loop-post-index",
     "fields": [
       {
         "type": "string",
@@ -494,57 +487,54 @@ function setupLoopSearchNode {
         "type": "completion"
       }
     ]
-  }
-}
-DELIM
+  }' > /dev/null
+
+  ## Activate index
+  curl -X GET -s \
+    "http://localhost:3010/api/admin/index/${POST_INDEX}/activate" \
+    -H "Authorization: Bearer ${TOKEN}" > /dev/null
 
   # Config file for apikeys
   read -p "Name to identify the API key by (loop-test): " APINAME
   if [ -z $APINAME ]; then
     APINAME="loop-test"
   fi
-  APIKEY=`echo $APINAME | md5sum | cut -f1 -d" "`
 
-  cat > ${INSTALL_PATH}/apikeys.json <<DELIM
-{
-  "${APIKEY}": {
-    "name": "${APINAME}",
-    "expire": 300,
-    "indexes": [
-      "${TAH_INDEX}",
-      "${POST_INDEX}"
-    ],
-    "access": "rw"
-  }
-}
-DELIM
+  ## Add API key.
+  APIKEY_WRITE=`echo $APINAME "(write)" | md5sum | cut -f1 -d" "`
+  curl -X POST -s \
+    http://localhost:3010/api/admin/key \
+    -H "Authorization: Bearer ${TOKEN}" \
+    -H 'Content-Type: application/json' \
+    -d "{
+    \"api\": {
+    \"key\": \"${APIKEY_WRITE}\",
+      \"name\": \"${APINAME} (write)\",
+      \"expire\": 300,
+      \"access\": \"rw\",
+      \"indexes\": [ \"${TAH_INDEX}\", \"${POST_INDEX}\" ]
+    }
+  }" > /dev/null
 
-## Add API key.
-curl -X POST \
-  http://192.168.50.101:3010/api/admin/key \
-  -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE1MTU2MDE4ODMsImV4cCI6MTUxNTYxOTg4M30.pMI8WbS0q8cT7W8NhdElv4XGiQVN3huQJnmo_lJItaw' \
-  -H 'Cache-Control: no-cache' \
-  -H 'Content-Type: application/json' \
-  -H 'Postman-Token: d56b01bd-8e24-c4fc-df0d-ccda561c1f96' \
-  -d '{ 
-  "api": {
-  "key": "c734bdb6efd4b1dfc53aabc3cd17b089",
-    "name": "test",
-    "expire": 300,
-    "access": "rw",
-    "indexes": [ "882cab341dcdccfd0321c8530d4ef5ab" ] 
-  } 
-}'
-
-  ##
-  #
-  # @TODO: Activate indexes. (get /api/:index/activate) - (post '/login').
-  #
-  ##
+  ## Add API key.
+  APIKEY_READ=`echo $APINAME "(read)" | md5sum | cut -f1 -d" "`
+  curl -X POST -s \
+    http://localhost:3010/api/admin/key \
+    -H "Authorization: Bearer ${TOKEN}" \
+    -H 'Content-Type: application/json' \
+    -d "{
+    \"api\": {
+    \"key\": \"${APIKEY_READ}\",
+      \"name\": \"${APINAME} (read)\",
+      \"expire\": 300,
+      \"access\": \"r\",
+      \"indexes\": [ \"${TAH_INDEX}\", \"${POST_INDEX}\" ]
+    }
+  }" > /dev/null
 }
 
 ##
-#
+# Install loop.
 ##
 function setupDrupalLoop {
   while true; do
@@ -635,6 +625,9 @@ DELIM
 
   # Search node site configuration
   setupSearchNode;
+
+  # Added search configuration to settings.php.
+  
 
   echo " "
   echo " "
