@@ -88,7 +88,7 @@ function installApache {
 # Install NodeJs.
 ##
 function installNodeJs {
-	echo "${RESET}Installing NodeJs...${GREEN}"
+	echo "${GREEN}Installing NodeJs...${RESET}"
 
 	wget https://deb.nodesource.com/setup_6.x -O /tmp/node_install.sh
 	chmod 700 /tmp/node_install.sh
@@ -157,7 +157,7 @@ function installSuperVisor {
 ##
 function installUtils {
 	echo "${GREEN}Installing utils...${RESET}"
-	apt-get install git bash-completion sudo nmap mc imagemagick git-core lynx rcconf build-essential automake autoconf pwgen curl -y > /dev/null || exit 1
+	apt-get install git bash-completion sudo nmap mc imagemagick git-core lynx rcconf build-essential automake autoconf pwgen jq curl -y > /dev/null || exit 1
 }
 
 updateSystem;

@@ -243,13 +243,15 @@ DELIM
 # Single site setup for search node (index + keys).
 ##
 function setupLoopSearchNode {
+  echo "${GREEN}Configure search node indexes...${RESET}"
+
   ## Login as admin.
   while true; do
-    read -p "Search node admin password: " ADMIN_PASSWD
+    read -p "Search node admin password: " ADMIN_SN_PASSWD
     TOKEN=$(curl -X POST -s \
       http://localhost:3010/login \
         -H 'content-type: application/json' \
-        -d "{\"username\": \"admin\", \"password\": \"${ADMIN_PASSWD}\"}" | jq .token)
+        -d "{\"username\": \"admin\", \"password\": \"${ADMIN_SN_PASSWD}\"}" | jq .token)
     if [[ $TOKEN != "null" ]]; then
       TOKEN=`echo ${TOKEN} | sed -e 's/^"//' -e 's/"$//'`
       break;
@@ -624,10 +626,30 @@ DELIM
   a2ensite ${CONF_FILE}.conf
 
   # Search node site configuration
-  setupSearchNode;
+  setupLoopSearchNode;
 
   # Added search configuration to settings.php.
-  
+  echo "${GREEN}Configure drupal search node...${RESET}"
+  echo " "
+  read -p "Search node FQDN (https://search.example.com): " DOMAIN
+  if [ -z $DOMAIN ]; then
+    DOMAIN="https://search.example.com"
+  fi
+
+  cat >> ${INSTALL_PATH}/sites/default/settings.php <<DELIM
+\$conf['search_api_loop_search_node_apikey'] = '${APIKEY_WRITE}';
+\$conf['search_api_loop_search_node_apikey_readonly'] = '${APIKEY_READ}';
+\$conf['search_api_loop_search_node_host'] = '${DOMAIN}';
+
+\$conf['search_api_loop_search_node_index_posts'] = '${TAH_INDEX}';
+\$conf['search_api_loop_search_node_index_auto_complete'] = '${POST_INDEX}';
+DELIM
+
+  ## Change to loop to search node.
+  echo "${GREEN}Change loop to use search node...${RESET}"
+  drush --yes --root="${INSTALL_PATH}" dis loop_search search_api_spellcheck search_api_views search_api_page search_api_solr
+  drush --yes --root="${INSTALL_PATH}" pm-uninstall loop_search search_api_spellcheck search_api_views search_api_page search_api_solr
+  drush --yes --root="${INSTALL_PATH}" en loop_search_node loop_search_node_settings search_node_page 
 
   echo " "
   echo " "
