@@ -157,7 +157,7 @@ function installSuperVisor {
 ##
 function installUtils {
 	echo "${GREEN}Installing utils...${RESET}"
-	apt-get install git bash-completion sudo nmap mc imagemagick git-core lynx rcconf build-essential automake autoconf pwgen jq curl -y > /dev/null || exit 1
+	apt-get install git bash-completion sudo nmap mc imagemagick git-core lynx rcconf build-essential automake autoconf pwgen jq curl wget sudo apt-utils -y > /dev/null || exit 1
 }
 
 updateSystem;
