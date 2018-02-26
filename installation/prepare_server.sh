@@ -7,9 +7,6 @@
 # It assumes that you have a clean install Debian 8 server.
 ##################################################################
 
-## Disable term blank
-setterm -blank 0
-
 ## Define colors.
 BOLD=$(tput bold)
 UNDERLINE=$(tput sgr 0 1)
@@ -23,8 +20,8 @@ RESET=$(tput sgr0)
 ##
 function updateSystem {
 	echo "${GREEN}Updating system packages...${RESET}"
-  apt-get update > /dev/null || exit 1
-  apt-get upgrade -y > /dev/null || exit 1
+  apt-get -qq update || exit 1
+  apt-get -qq upgrade -y || exit 1
 }
 
 ##
@@ -40,7 +37,7 @@ function intallMySQL {
 	debconf-set-selections <<< "mysql-server-5.5 mysql-server/root_password_again password ${PASSWORD}" > /dev/null || exit 1
 
 	echo "${GREEN}Installing MySQL...${RESET}"
-	apt-get install -y mysql-server > /dev/null || exit 1
+	apt-get -qq install -y mysql-server || exit 1
 }
 
 ##
@@ -48,7 +45,7 @@ function intallMySQL {
 ##
 function installPHP {
 	echo "${GREEN}Installing PHP-5.x${RESET}"
-	apt-get install -y php5 php5-cli php5-mysql php5-curl php5-mcrypt php5-gd php-pear php5-dev libapache2-mod-php5 > /dev/null || exit 1
+	apt-get -qq install -y php5 php5-cli php5-mysql php5-curl php5-mcrypt php5-gd php-pear php5-dev libapache2-mod-php5 || exit 1
 
 	sed -i '/;date.timezone =/c date.timezone = Europe/Copenhagen' /etc/php5/apache2/php.ini
 	sed -i '/;date.timezone =/c date.timezone = Europe/Copenhagen' /etc/php5/apache2/php.ini
@@ -65,7 +62,7 @@ function installPHP {
 ##
 function installCaches {
 	echo "${GREEN}Installing redis server...${RESET}"
-	apt-get install -y redis-server > /dev/null || exit 1
+	apt-get -qq install -y redis-server || exit 1
 }
 
 ##
@@ -73,7 +70,7 @@ function installCaches {
 ##
 function installApache {
 	echo "${GREEN}Installing Apache...${RESET}"
-	apt-get install -y apache2 > /dev/null || exit 1
+	apt-get -qq install -y apache2 || exit 1
 
 	echo "${GREEN}Enable Apache modules...${RESET}"
 	a2enmod expires > /dev/null || exit 1
@@ -117,7 +114,7 @@ function installDrush {
 	git clone https://github.com/drush-ops/drush.git /opt/drush > /dev/null || exit 1
 	cd /opt/drush > /dev/null || exit 1
 	git checkout 8.1.15 > /dev/null || exit 1
-	composer install > /dev/null || exit 1
+	composer install || exit 1
 
 	ln -s /opt/drush/drush /usr/local/bin
 }
@@ -127,7 +124,7 @@ function installDrush {
 ##
 function installEleasticSearch {
 	echo "${GREEN}Installing java...${RESET}"
-	apt-get install openjdk-7-jre -y > /dev/null || exit 1
+	apt-get -qq install openjdk-7-jre -y || exit 1
 
 	echo "${GREEN}Installing elasticsearch...${RESET}"
 	cd /tmp
@@ -157,8 +154,16 @@ function installSuperVisor {
 ##
 function installUtils {
 	echo "${GREEN}Installing utils...${RESET}"
-	apt-get install git bash-completion sudo nmap mc imagemagick git-core lynx rcconf build-essential automake autoconf pwgen jq curl wget sudo apt-utils -y > /dev/null || exit 1
+	apt-get -qq install git bash-completion sudo nmap mc imagemagick git-core lynx rcconf build-essential automake autoconf pwgen jq curl wget sudo apt-utils -y || exit 1
 }
+
+##
+# Make sure only root can run our script.
+##
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
 
 updateSystem;
 installUtils;
